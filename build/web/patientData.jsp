@@ -11,17 +11,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-</head>
-<body>
-      <script src="https://cdn.tailwindcss.com"></script>
+  
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+      
 <div class="md:flex flex-col md:flex-row md:min-h-screen w-full">
   <div @click.away="open = false" class="bg-gray-100 shadow-lg  flex flex-col w-full md:w-64 text-gray-700  dark-mode:text-gray-200 dark-mode:bg-gray-800 flex-shrink-0" x-data="{ open: false }">
     <div class="flex-shrink-0 px-8 py-4 flex flex-row items-center justify-between">
       <a href="#" class="text-lg font-semibold tracking-widest text-indigo-400 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">
-          <img src="" alt="Therapion">
+          <p>Therapion</p>
       </a>
       <button class="rounded-lg md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
         <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
@@ -39,7 +41,7 @@
   </div>
   <div class="py-16 px-24  w-full  bg-indigo-300 bg-opacity-50">
     <div class="flex justify-between">
-        <h1 class="text-3xl mb-10 text-indigo-600 font-semibold">Dashboard</h1>
+        <h1 class="text-3xl mb-10 text-indigo-600 font-semibold">Patient Data</h1>
       
     </div>
     <div class="flex flex-col">
