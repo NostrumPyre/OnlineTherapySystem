@@ -32,10 +32,10 @@
       </button>
     </div>
     <nav :class="{'block': open, 'hidden': !open}" class="flex-grow md:block px-4 pb-4 md:pb-0 md:overflow-y-auto">
-      <a class="block px-4 py-2 mt-2 text-sm font-semibold text-white bg-indigo-600 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-indigo-600 dark-mode:focus:bg-indigo-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-indigo-600 focus:bg-white focus:outline-none focus:shadow-outline" href="#">Dashboard</a>
-      <a class="block px-4 py-2 mt-2 text-sm font-semibold text-indigo-600 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-indigo-600 dark-mode:focus:bg-indigo-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-white focus:text-gray-900 hover:bg-indigo-600 focus:bg-white focus:outline-none focus:shadow-outline" href="">Admin Data</a>
-      <a class="block px-4 py-2 mt-2 text-sm font-semibold text-indigo-600 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-indigo-600 dark-mode:focus:bg-indigo-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-white focus:text-gray-900 hover:bg-indigo-600 focus:bg-white focus:outline-none focus:shadow-outline" href="">Therapist Data</a>
-      <a class="block px-4 py-2 mt-2 text-sm font-semibold text-indigo-600 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-indigo-600 dark-mode:focus:bg-indigo-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-white focus:text-gray-900 hover:bg-indigo-600 focus:bg-white focus:outline-none focus:shadow-outline" href="">Patient Data</a>
+      <a class="block px-4 py-2 mt-2 text-sm font-semibold text-indigo-600 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-indigo-600 dark-mode:focus:bg-indigo-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-white focus:text-gray-900 hover:bg-indigo-600 focus:bg-white focus:outline-none focus:shadow-outline" href="AdminDashboard.jsp">Dashboard</a>
+      <a class="block px-4 py-2 mt-2 text-sm font-semibold text-white bg-indigo-600 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-indigo-600 dark-mode:focus:bg-indigo-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-indigo-600 focus:bg-white focus:outline-none focus:shadow-outline" href="adminData.jsp">Admin Data</a>
+      <a class="block px-4 py-2 mt-2 text-sm font-semibold text-indigo-600 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-indigo-600 dark-mode:focus:bg-indigo-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-white focus:text-gray-900 hover:bg-indigo-600 focus:bg-white focus:outline-none focus:shadow-outline" href="patientData.jsp">Patient Data</a>
+      <a class="block px-4 py-2 mt-2 text-sm font-semibold text-indigo-600 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-indigo-600 dark-mode:focus:bg-indigo-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-white focus:text-gray-900 hover:bg-indigo-600 focus:bg-white focus:outline-none focus:shadow-outline" href="therapistData.jsp">Therapist Data</a>
     </nav>
   </div>
   <div class="py-16 px-24  w-full  bg-indigo-300 bg-opacity-50">
@@ -50,37 +50,44 @@
             <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
                 <tr>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
-                    Number
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider ">
+                    Name
                     </th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
-                    Part
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider ">
+                    Email
                     </th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Question
-                    </th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
-                    Mark
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider ">
+                    Phone Number
                     </th>
                     
+                    <th scope="col" class="relative px-6 py-3">
+                    <span class="sr-only">Edit</span>
+                    </th>
                 </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
                 
                 <tr>
-                    <td class="px-6 py-4 whitespace-nowrap w-1">
-                      <div class="text-sm text-gray-500 text-center"></div>
+                    <td class="px-6 py-4 whitespace-nowrap ">
+                      <div class="text-sm text-gray-500 ">Marlon James</div>
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap w-1">
-                      <div class="text-sm text-gray-500 text-center"></div>
+                    <td class="px-6 py-4 whitespace-nowrap ">
+                      <div class="text-sm text-gray-500 ">marlonjames@email.com</div>
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      <div class="text-sm text-gray-500"></div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 w-1">
-                      <div class="text-sm text-gray-500 text-center"></div>
+                    <td class="px-6 py-4 whitespace-nowrap ">
+                      <div class="text-sm text-gray-500">+62xxxxxxxx</div>
                     </td>
                     
+                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium w-2">
+                      <div class="flex gap-2 justify-end">
+                        <a href="">
+                          <ion-icon class="text-xl text-indigo-800" name="create-outline"></ion-icon>
+                        </a>
+                        <a href="">
+                          <ion-icon class="text-xl text-indigo-800" name="trash-outline"></ion-icon>
+                        </a>
+                      </div>
+                    </td>
                 </tr>
               
                 </tbody>
@@ -91,7 +98,6 @@
     </div>
 </div>
 </div>
-
 
   
 </body>
