@@ -4,7 +4,12 @@
     Author     : Darlen
 --%>
 
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.sql.*"%>
+<%@page import="model.Admin" %>
+
+
 <!DOCTYPE html>
 
 <html>
@@ -61,7 +66,7 @@
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider ">
                     Phone Number
                     </th>
-                    
+             
                     <th scope="col" class="relative px-6 py-3">
                     <span class="sr-only">Edit</span>
                     </th>
@@ -69,28 +74,32 @@
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
                 
+                    
                 <tr>
                     <td class="px-6 py-4 whitespace-nowrap ">
-                      <div class="text-sm text-gray-500 ">Marlon James</div>
+                      <div class="text-sm text-gray-500 "></div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap ">
-                      <div class="text-sm text-gray-500 ">marlonjames@email.com</div>
+                      <div class="text-sm text-gray-500 "></div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap ">
-                      <div class="text-sm text-gray-500">+62xxxxxxxx</div>
+                      <div class="text-sm text-gray-500"></div>
                     </td>
                     
                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium w-2">
                       <div class="flex gap-2 justify-end">
-                        <a href="">
+                         
+                        <a href="fuctionCreate">
                           <ion-icon class="text-xl text-indigo-800" name="create-outline"></ion-icon>
                         </a>
-                        <a href="">
-                          <ion-icon class="text-xl text-indigo-800" name="trash-outline"></ion-icon>
+                        <a name="fuctionDelete" value="Delete">
+                          <ion-icon class="text-xl text-indigo-800" name="trash-outline">> 
+                          </ion-icon>
                         </a>
                       </div>
                     </td>
                 </tr>
+                
               
                 </tbody>
             </table>

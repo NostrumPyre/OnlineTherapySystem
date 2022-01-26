@@ -5,6 +5,10 @@
  */
 package model;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 /**
  *
  * @author rhyth
@@ -89,5 +93,49 @@ public class Appointment {
     }
     
     
-    
+    public Appointment getAppointment(int id) {
+          Connection conn;
+          PreparedStatement ps;
+          ResultSet rs;   
+      
+          Appointment p = new Appointment();
+
+        try {
+            String SQL = "SELECT * FROM appointment WHERE id=?";
+            conn = DBConnection.openConnection();
+            ps = conn.prepareStatement(SQL);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                p.setAppointmentid(rs.getInt("id"));
+                p.setPatientid(rs.getInt("patient_id"));
+                p.setTherapistid(rs.getInt("therapist_id"));
+                p.setStatus(rs.getInt("status"));
+                p.setDate(rs.getString("date"));
+                p.setTime_from(rs.getString("time_from"));
+                p.setTime_to(rs.getString("time_to"));
+            }
+
+        } catch (Exception e) {
+        }
+
+        return p;
+
+    }
+
+    public void deleteAppointment(int id) {
+        Connection conn;
+          PreparedStatement ps;
+          
+        try {
+            String sqldelete = "DELETE FROM appointment WHERE id=?";
+            conn = DBConnection.openConnection();
+            ps = conn.prepareStatement(sqldelete);
+            ps.setInt(1, id);
+            ps.executeUpdate();
+
+        } catch (Exception e) {
+        }
+    }
 }
