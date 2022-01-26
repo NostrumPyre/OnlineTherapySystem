@@ -5,17 +5,22 @@
  */
 package model;
 
+import java.sql.Date;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 /**
  *
  * @author rhyth
  */
 public class Therapist {
     
-    private int patientid;
+    private int therapistid;
     private String name;
     private String email;
     private String password;
-    private String dob;
+    private Date dob;
     private String gender;
     private String address;
     private String phone;
@@ -24,8 +29,8 @@ public class Therapist {
     public Therapist() {
     }
 
-    public Therapist(int patientid, String name, String email, String password, String dob, String gender, String address, String phone, boolean availability) {
-        this.patientid = patientid;
+    public Therapist(int therapistid, String name, String email, String password, Date dob, String gender, String address, String phone, boolean availability) {
+        this.therapistid = therapistid;
         this.name = name;
         this.email = email;
         this.password = password;
@@ -36,12 +41,12 @@ public class Therapist {
         this.availability = availability;
     }
 
-    public int getPatientid() {
-        return patientid;
+    public int getTherapistid() {
+        return therapistid;
     }
 
-    public void setPatientid(int patientid) {
-        this.patientid = patientid;
+    public void setTherapistid(int therapistid) {
+        this.therapistid = therapistid;
     }
 
     public String getName() {
@@ -68,11 +73,11 @@ public class Therapist {
         this.password = password;
     }
 
-    public String getDob() {
+    public Date getDob() {
         return dob;
     }
 
-    public void setDob(String dob) {
+    public void setDob(Date dob) {
         this.dob = dob;
     }
 
@@ -109,6 +114,73 @@ public class Therapist {
     }
     
     
-    
+    public Therapist getTherapist(int id) {
+        Connection conn;
+        PreparedStatement ps;
+        ResultSet rs;
+
+        Therapist p = new Therapist();
+
+        try {
+            String SQL = "SELECT * FROM therapist WHERE id=?";
+            conn = DBConnection.openConnection();
+            ps = conn.prepareStatement(SQL);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                p.setTherapistid(rs.getInt("id"));
+                p.setName(rs.getString("name"));
+                p.setEmail(rs.getString("email"));
+                p.setPassword(rs.getString("password"));
+                p.setPhone(rs.getString("phone"));
+                p.setDob(rs.getDate("dob"));
+                p.setGender(rs.getString("gender"));
+                p.setAddress(rs.getString("address"));
+                p.setAvailability(rs.getBoolean("availability"));
+            }
+
+        } catch (Exception e) {
+        }
+
+        return p;
+
+    }
+
+    public void deleteTherapist(int id) {
+        Connection conn;
+        PreparedStatement ps;
+
+        try {
+            String sqldelete = "DELETE FROM therapist WHERE id=?";
+            conn = DBConnection.openConnection();
+            ps = conn.prepareStatement(sqldelete);
+            ps.setInt(1, id);
+            ps.executeUpdate();
+
+        } catch (Exception e) {
+        }
+    }
+
+    public void addTherapist(String name, String email, String password, Date dob, String gender, String address, String phone, boolean availability) {
+        Connection conn;
+        PreparedStatement ps;
+        try {
+            String SQL = "INSERT INTO ADMIN(name, email,password,phone)VALUES(?,?,?,?)";
+            conn = DBConnection.openConnection();
+            ps = conn.prepareStatement(SQL);
+            ps.setString(1, name);
+            ps.setString(2, email);
+            ps.setString(3, password);
+            ps.setDate(3, dob);
+            ps.setString(3, gender);
+            ps.setString(3, address);
+            ps.setString(4, phone);
+            ps.setBoolean(3, availability);
+            ps.executeUpdate();
+
+        } catch (Exception e) {
+        }
+    }
     
 }
