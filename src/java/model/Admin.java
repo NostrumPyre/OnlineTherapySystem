@@ -5,6 +5,9 @@
  */
 package model;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
 /**
  *
  * @author rhyth
@@ -68,6 +71,22 @@ public class Admin {
         this.phone = phone;
     }
     
+    
+    public void addAdmin(String name,String email,String pass, String phone) {
+       Connection conn;
+       PreparedStatement ps;
+      try{
+          String SQL = "INSERT INTO ADMIN(name, email,password,phone)VALUES(?,?,?,?)";
+          conn = DBConnection.openConnection();
+          ps = conn.prepareStatement(SQL);
+          ps.setString(1, name);
+          ps.setString(2, email);
+          ps.setString(3, pass);
+          ps.setString(4, phone);
+          ps.executeUpdate();
+          
+      }catch(Exception e){}  
+    }
     
     
 }
