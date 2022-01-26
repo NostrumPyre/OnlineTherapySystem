@@ -8,6 +8,10 @@
         <servlet-name>TherapistController</servlet-name>
         <servlet-class>Controller.TherapistController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PatientController</servlet-name>
+        <servlet-class>Controller.PatientController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AdminController</servlet-name>
         <url-pattern>/AdminController</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>TherapistController</servlet-name>
         <url-pattern>/TherapistController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PatientController</servlet-name>
+        <url-pattern>/PatientController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
