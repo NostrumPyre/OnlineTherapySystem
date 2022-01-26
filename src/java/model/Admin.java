@@ -7,13 +7,16 @@ package model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author rhyth
  */
 public class Admin {
-    
+
     private int adminid;
     private String name;
     private String email;
@@ -23,7 +26,8 @@ public class Admin {
     public Admin() {
     }
 
-    public Admin(int adminid, String name, String email, String password, String phone) {
+    public Admin(int adminid, String name, String email, String password, String phone, Connection conn,
+            PreparedStatement ps, ResultSet rs) {
         this.adminid = adminid;
         this.name = name;
         this.email = email;
@@ -70,23 +74,66 @@ public class Admin {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-    
-    
-    public void addAdmin(String name,String email,String pass, String phone) {
-       Connection conn;
-       PreparedStatement ps;
-      try{
-          String SQL = "INSERT INTO ADMIN(name, email,password,phone)VALUES(?,?,?,?)";
-          conn = DBConnection.openConnection();
-          ps = conn.prepareStatement(SQL);
-          ps.setString(1, name);
-          ps.setString(2, email);
-          ps.setString(3, pass);
-          ps.setString(4, phone);
-          ps.executeUpdate();
-          
-      }catch(Exception e){}  
+
+    public Admin getAdminData(int id) {
+        Connection conn;
+        PreparedStatement ps;
+        ResultSet rs;
+
+        Admin p = new Admin();
+
+        try {
+            String SQL = "SELECT * FROM admin WHERE id=?";
+            conn = DBConnection.openConnection();
+            ps = conn.prepareStatement(SQL);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                p.setAdminid(rs.getInt("id"));
+                p.setName(rs.getString("name"));
+                p.setEmail(rs.getString("email"));
+                p.setPassword(rs.getString("password"));
+                p.setPhone(rs.getString("phone"));
+            }
+
+        } catch (Exception e) {
+        }
+
+        return p;
+
     }
-    
-    
+
+    public void deleteAdminData(int id) {
+        Connection conn;
+        PreparedStatement ps;
+
+        try {
+            String sqldelete = "DELETE FROM admin WHERE id=?";
+            conn = DBConnection.openConnection();
+            ps = conn.prepareStatement(sqldelete);
+            ps.setInt(1, id);
+            ps.executeUpdate();
+
+        } catch (Exception e) {
+        }
+    }
+
+    public void addAdmin(String name, String email, String pass, String phone) {
+        Connection conn;
+        PreparedStatement ps;
+        try {
+            String SQL = "INSERT INTO ADMIN(name, email,password,phone)VALUES(?,?,?,?)";
+            conn = DBConnection.openConnection();
+            ps = conn.prepareStatement(SQL);
+            ps.setString(1, name);
+            ps.setString(2, email);
+            ps.setString(3, pass);
+            ps.setString(4, phone);
+            ps.executeUpdate();
+
+        } catch (Exception e) {
+        }
+    }
+
 }
