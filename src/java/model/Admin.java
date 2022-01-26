@@ -16,18 +16,18 @@ import java.util.List;
  * @author rhyth
  */
 public class Admin {
-    
+
     private int adminid;
     private String name;
     private String email;
     private String password;
     private String phone;
-  
 
     public Admin() {
     }
 
-    public Admin(int adminid, String name, String email, String password, String phone, Connection conn, PreparedStatement ps, ResultSet rs) {
+    public Admin(int adminid, String name, String email, String password, String phone, Connection conn,
+            PreparedStatement ps, ResultSet rs) {
         this.adminid = adminid;
         this.name = name;
         this.email = email;
@@ -74,15 +74,13 @@ public class Admin {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-    
-       
 
     public Admin getAdminData(int id) {
-          Connection conn;
-          PreparedStatement ps;
-          ResultSet rs;   
-      
-          Admin p = new Admin();
+        Connection conn;
+        PreparedStatement ps;
+        ResultSet rs;
+
+        Admin p = new Admin();
 
         try {
             String SQL = "SELECT * FROM admin WHERE id=?";
@@ -108,8 +106,8 @@ public class Admin {
 
     public void deleteAdminData(int id) {
         Connection conn;
-          PreparedStatement ps;
-          
+        PreparedStatement ps;
+
         try {
             String sqldelete = "DELETE FROM admin WHERE id=?";
             conn = DBConnection.openConnection();
@@ -120,5 +118,22 @@ public class Admin {
         } catch (Exception e) {
         }
     }
-    
+
+    public void addAdmin(String name, String email, String pass, String phone) {
+        Connection conn;
+        PreparedStatement ps;
+        try {
+            String SQL = "INSERT INTO ADMIN(name, email,password,phone)VALUES(?,?,?,?)";
+            conn = DBConnection.openConnection();
+            ps = conn.prepareStatement(SQL);
+            ps.setString(1, name);
+            ps.setString(2, email);
+            ps.setString(3, pass);
+            ps.setString(4, phone);
+            ps.executeUpdate();
+
+        } catch (Exception e) {
+        }
+    }
+
 }

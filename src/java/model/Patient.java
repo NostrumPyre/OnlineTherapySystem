@@ -5,6 +5,12 @@
  */
 package model;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+
 /**
  *
  * @author rhyth
@@ -108,7 +114,88 @@ public class Patient {
         this.form_answer = form_answer;
     }
     
+    public void insertPatient(String name,String email,String password, String dob, String address, String phone) {
+       Connection conn;
+       PreparedStatement ps;
+      try{
+          String SQL = "INSERT INTO PATIENT(name,email,password,dob,address,phone)VALUES(?,?,?,?,?,?)";
+          conn = DBConnection.openConnection();
+          ps = conn.prepareStatement(SQL);
+          ps.setString(1, name);
+          ps.setString(2, email);
+          ps.setString(3, password);
+          ps.setString(4, dob);
+          ps.setString(5, address);
+          ps.setString(6, phone);
+          ps.executeUpdate();
+          
+      }catch(Exception e){}  
+    }
     
+    
+    public Patient getPatient(int id) {
+      Connection conn;
+      PreparedStatement ps;
+      ResultSet rs;   
+      Patient p= new Patient();
+      
+      try{
+          String SQL = "SELECT * FROM PATIENT WHERE id=?";
+          conn = DBConnection.openConnection();
+          ps = conn.prepareStatement(SQL);
+          ps.setInt(1, id);
+          rs = ps.executeQuery();
+       
+          while(rs.next())
+          {
+              p.setPatientid(rs.getInt("id"));
+              p.setName(rs.getString("name"));
+              p.setEmail(rs.getString("email"));
+              p.setPassword(rs.getString("password"));
+              p.setDob(rs.getString("dob"));
+              p.setAddress(rs.getString("address"));
+              p.setPhone(rs.getString("phone"));
+              p.setForm_question(rs.getString("form_question"));
+              p.setForm_answer(rs.getString("form_answer"));
+          }
+          
+      }catch(Exception e){}
+      
+      return p;
+        
+    }
+    
+    
+    public ArrayList<Patient> getAllPatient() {
+      Connection conn;
+      ArrayList<Patient> patientList = new ArrayList<>();
+      
+      try{
+          String SQL = "SELECT * FROM PATIENT";
+          conn = DBConnection.openConnection();
+          Statement stmt = conn.createStatement();
+        
+          ResultSet rs = stmt.executeQuery(SQL);
+          
+          while(rs.next()){
+              Patient p = new Patient();
+              
+              p.setPatientid(rs.getInt("id"));
+              p.setName(rs.getString("name"));
+              p.setEmail(rs.getString("email"));
+              p.setPassword(rs.getString("password"));
+              p.setDob(rs.getString("dob"));
+              p.setAddress(rs.getString("address"));
+              p.setPhone(rs.getString("phone"));
+              p.setForm_question(rs.getString("form_question"));
+              p.setForm_answer(rs.getString("form_answer"));
+              
+              patientList.add(p);    
+          }    
+      }catch(Exception e){}
+      
+      return patientList;
+    }
     
     
 }
