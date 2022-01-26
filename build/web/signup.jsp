@@ -79,7 +79,7 @@
                                 color: #858CE4;" 
                        type = "submit" value = "SIGN UP" />
                 
-                <a href = "login.html">
+                <a href = "login.jsp">
                     <p style = "position: absolute; width: 147px; height: 20px; left: 655px; top: 713px; 
                                 font-family: Montserrat; font-style: normal; font-weight: 500; font-size: 16px; 
                                 line-height: 20px;
