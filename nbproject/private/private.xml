@@ -5,8 +5,10 @@
         <group>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/Controller/PatientController.java</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/Controller/LoginController.java</file>
+            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/nbproject/build-impl.xml</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/web/advicePage.jsp</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/.gitignore</file>
+            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/Controller/DeleteTherapistController.java</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/Controller/addTherapistController.java</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/Controller/ForumDetailsController.java</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/nbproject/project.xml</file>
@@ -20,6 +22,7 @@
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/model/DBConnection.java</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/Controller/AdminDataController.java</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/web/landingPage.jsp</file>
+            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/web/DetailTherapist.jsp</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/web/adminData.jsp</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/Controller/addAdminController.java</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/model/Forum.java</file>
