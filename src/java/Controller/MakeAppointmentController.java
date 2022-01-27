@@ -1,26 +1,31 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package Controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
+import java.sql.Date;
+import java.sql.Time;
+import java.util.Enumeration;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.Appointment;
+import model.Patient;
 import model.Therapist;
 
 /**
  *
- * @author Darlen
+ * @author rhyth
  */
-@WebServlet(name = "DetailTherapistController", urlPatterns = {"/DetailTherapistController"})
-public class DetailTherapistController extends HttpServlet {
+@WebServlet(name = "MakeAppointmentController", urlPatterns = {"/MakeAppointmentController"})
+public class MakeAppointmentController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,17 +38,25 @@ public class DetailTherapistController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        Therapist th =new Therapist();
-//        ArrayList<Therapist> therapistList = therapist.getAllTherapist();
         
         HttpSession session = request.getSession();
-        int id = Integer.parseInt(request.getParameter("id"));
         
-        Therapist therapist =  th.getTherapist(id);
-//        session.setAttribute("therapistList", therapistList);
-        session.setAttribute("therapist", therapist);
-        request.getRequestDispatcher("DetailTherapist.jsp").forward(request, response);
+        
+        Patient patient = (Patient) session.getAttribute("patient");
+        Therapist therapist = (Therapist) session.getAttribute("therapist");
+        
+        
+        Date date = Date.valueOf(request.getParameter("date-appointment"));
+        Time time_from = Time.valueOf(request.getParameter("time-from-appointment"));
+        Time time_to = Time.valueOf(request.getParameter("time-to-appointment"));
+        
+        
+        Appointment appointment = new Appointment();
+        
+        appointment.addAppointment(patient.getPatientid(), therapist.getTherapistid(), 0, date, time_from, time_to);
+        
+        
+        request.getRequestDispatcher("landingPage.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
