@@ -4,14 +4,33 @@
     Author     : Darlen
 --%>
 
+<%@page import="com.sun.xml.rpc.processor.modeler.j2ee.xml.string"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*"%>
 <%@page import="model.Admin" %>
-
-
+<%@page import="model.DBConnection" %>
+<%@page import="Controller.AdminDataController" %>
+<%
+        String id = request.getParameter("id");
+        String driver = "com.mysql.jdbc.Driver";
+        String connectionUrl = "jdbc:mysql://localhost:3306/";
+        String database = "therapionv2";
+        String userid = "root";
+        String password = "";
+        try {
+        Class.forName(driver);
+        } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+        }
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        %>
 <!DOCTYPE html>
-
+        
 <html>
 <head>
   <meta charset="utf-8">
@@ -48,7 +67,11 @@
   <div class="py-16 px-24  w-full  bg-indigo-300 bg-opacity-50">
     <div class="flex justify-between">
         <h1 class="text-3xl mb-10 text-indigo-600 font-semibold">Admin Data</h1>
-      
+        <a href="addAdmin.jsp" class="flex h-16 bg-transparent hover:bg-indigo-500 text-indigo-700 font-semibold hover:text-white py-1 px-2 border border-indigo-500 hover:border-transparent rounded">
+            
+        <ion-icon class="my-auto text-2xl mr-2" name="add-circle-outline"></ion-icon><p class="my-auto">Add Admin Account</p>
+        
+      </a>
     </div>
     <div class="flex flex-col">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -74,16 +97,32 @@
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
                 
+                    <%
+                    /*
+                    try{
+                    connection = DriverManager.getConnection(connectionUrl+database, userid, password);
+                    statement=connection.createStatement();
+                    String sql ="select * from admin";
+                    resultSet = statement.executeQuery(sql);
+                    while(resultSet.next()){*/
+                    %> 
+                    
+                    <%
+                        ArrayList<Admin> adminList = (ArrayList<Admin>) session.getAttribute("adminList");
+                        for(int i=0;i<adminList.size();i++){
+                    %>
+                    
+                            
                     
                 <tr>
                     <td class="px-6 py-4 whitespace-nowrap ">
-                      <div class="text-sm text-gray-500 "></div>
+                        <div class="text-sm text-gray-500 "><%= adminList.get(i).getName() %></div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap ">
-                      <div class="text-sm text-gray-500 "></div>
+                      <div class="text-sm text-gray-500 "><%= adminList.get(i).getEmail() %></div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap ">
-                      <div class="text-sm text-gray-500"></div>
+                      <div class="text-sm text-gray-500"><%= adminList.get(i).getPhone() %></div>
                     </td>
                     
                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium w-2">
@@ -92,14 +131,26 @@
                         <a href="fuctionCreate">
                           <ion-icon class="text-xl text-indigo-800" name="create-outline"></ion-icon>
                         </a>
-                        <a name="fuctionDelete" value="Delete">
+<!--                        <a href="/deleteAdminController" name="fuctionDelete" value="Delete" action="deleteAdminController" method="POST">
                           <ion-icon class="text-xl text-indigo-800" name="trash-outline">> 
                           </ion-icon>
-                        </a>
+                        </a>-->
+                          <form action="deleteAdminController" method="get">
+                              <input type="hidden" name="functionDelete" value="<%= adminList.get(i).getAdminid() %>">
+                          <input id="viewbutton" type="submit" value="Delete">
+                          </form>
                       </div>
                     </td>
                 </tr>
+                <%} %>
                 
+                <%/*
+                }
+                connection.close();
+                } catch (Exception e) {
+                e.printStackTrace();
+                }*/
+                %>
               
                 </tbody>
             </table>

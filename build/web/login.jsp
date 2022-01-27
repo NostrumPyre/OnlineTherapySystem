@@ -45,7 +45,7 @@
         THERAPION
       </h2>
     </div>
-    <form class="mt-8 space-y-6" action="#" method="POST" onsubmit = "return validateform()">
+    <form class="mt-8 space-y-6" action="LoginController" method="POST" onsubmit = "return validateform()">
       <input type="hidden" name="remember" value="true">
       <div class="rounded-md shadow-sm -space-y-px">
         <div>
@@ -81,6 +81,7 @@
         </button>
       </div>
     </form>
+      <div><span>Don't have an account?   </span><a href="signup.jsp"><b style="color: white;">SignUp</b></a></div>
   </div>
 </div>
 

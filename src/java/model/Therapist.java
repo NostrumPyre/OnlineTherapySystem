@@ -9,6 +9,8 @@ import java.sql.Date;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -146,6 +148,39 @@ public class Therapist {
         return p;
 
     }
+    
+    
+    public ArrayList<Therapist> getAllTherapist() {
+      Connection conn;
+      ArrayList<Therapist> therapistList = new ArrayList<>();
+      
+      try{
+          String SQL = "SELECT * FROM THERAPIST";
+          conn = DBConnection.openConnection();
+          Statement stmt = conn.createStatement();
+        
+          ResultSet rs = stmt.executeQuery(SQL);
+          
+          while(rs.next()){
+              Therapist p = new Therapist();
+              
+              p.setTherapistid(rs.getInt("id"));
+              p.setName(rs.getString("name"));
+              p.setEmail(rs.getString("email"));
+              p.setPassword(rs.getString("password"));
+              p.setPhone(rs.getString("phone"));
+              p.setDob(rs.getDate("dob"));
+              p.setGender(rs.getString("gender"));
+              p.setAddress(rs.getString("address"));
+              p.setAvailability(rs.getBoolean("availability"));
+              
+              therapistList.add(p);    
+          }    
+      }catch(Exception e){}
+      
+      return therapistList;
+    }
+    
 
     public void deleteTherapist(int id) {
         Connection conn;
@@ -162,21 +197,21 @@ public class Therapist {
         }
     }
 
-    public void addTherapist(String name, String email, String password, Date dob, String gender, String address, String phone, boolean availability) {
+    public void addTherapist(String name, String email, String password, Date dob, String gender, String address, String phone) {
         Connection conn;
         PreparedStatement ps;
         try {
-            String SQL = "INSERT INTO ADMIN(name, email,password,phone)VALUES(?,?,?,?)";
+            String SQL = "INSERT INTO therapist(name, email,password,dob,gender,address,phone)VALUES(?,?,?,?,?,?,?)";
             conn = DBConnection.openConnection();
             ps = conn.prepareStatement(SQL);
             ps.setString(1, name);
             ps.setString(2, email);
             ps.setString(3, password);
-            ps.setDate(3, dob);
-            ps.setString(3, gender);
-            ps.setString(3, address);
-            ps.setString(4, phone);
-            ps.setBoolean(3, availability);
+            ps.setDate(4, dob);
+            ps.setString(5, gender);
+            ps.setString(6, address);
+            ps.setString(7, phone);
+
             ps.executeUpdate();
 
         } catch (Exception e) {
