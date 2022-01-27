@@ -4,12 +4,13 @@
     Author     : Darlen
 --%>
 
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*"%>
 <%@page import="model.Admin" %>
-
-
+<%@page import="Controller.AdminDataController" %>
 <!DOCTYPE html>
 
 <html>
@@ -74,13 +75,18 @@
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
                 
-                    
+                    <%
+                        List<Admin> pr = (List<Admin>) request.getAttribute("adminList");
+
+                        for (int i = 1; i < pr.size(); i++) {
+                            
+                    %>
                 <tr>
                     <td class="px-6 py-4 whitespace-nowrap ">
-                      <div class="text-sm text-gray-500 "></div>
+                      <div class="text-sm text-gray-500 "><%=pr.get(i).getName()%></div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap ">
-                      <div class="text-sm text-gray-500 "></div>
+                      <div class="text-sm text-gray-500 "><%=pr.get(i).getEmail()%></div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap ">
                       <div class="text-sm text-gray-500"></div>
@@ -99,7 +105,9 @@
                       </div>
                     </td>
                 </tr>
-                
+                <%
+                    }
+                    %>
               
                 </tbody>
             </table>

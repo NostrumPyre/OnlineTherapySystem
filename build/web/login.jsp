@@ -49,7 +49,7 @@
                        type = "text" name = "password" value = "PASSWORD" required /> <br/> <br/>
                 
                 <input style = "position: absolute; width: 20px; height: 20px; left: 480px; top: 448px; background-color: #FFFFFF; border: 2px solid #858CE4;" 
-                       type = "radio" name = "patient" value = "Patient" /> 
+                       type = "radio" name = "radio" value = "Patient" /> 
             
                 <p style = "position: absolute; width: 250px; height: 35px; left: 430px; top: 425px;
                             font-family: Mulish; font-style: normal; font-weight: bold; font-size: 20px;
@@ -60,7 +60,7 @@
                 </p> <br/> <br/> 
             
                 <input style = "position: absolute; width: 20px; height: 20px; left: 480px; top: 490px; background-color: #FFFFFF; border: 2px solid #858CE4;" 
-                       type = "radio" name = "therapist" value = "Therapist" /> 
+                       type = "radio" name = "radio" value = "Therapist" /> 
             
                 <p style = "position: absolute; width: 250px; height: 35px; left: 440px; top: 467px;
                             font-family: Mulish; font-style: normal; font-weight: bold; font-size: 20px; 
@@ -71,7 +71,7 @@
                 </p> <br/> <br/>
             
                 <input style = "position: absolute; width: 20px; height: 20px; left: 480px; top: 530px; background-color: #FFFFFF; border: 2px solid #858CE4;" 
-                       type = "radio" name = "admin" value = "Admin" /> 
+                       type = "radio" name = "radio" value = "Admin" /> 
             
                 <p style = "position: absolute; width: 280px; height: 35px; left: 413px; top: 508px;
                             font-family: Mulish; font-style: normal; font-weight: bold; font-size: 20px;

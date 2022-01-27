@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 package model;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,8 +26,7 @@ public class Admin {
     public Admin() {
     }
 
-    public Admin(int adminid, String name, String email, String password, String phone, Connection conn,
-            PreparedStatement ps, ResultSet rs) {
+    public Admin(int adminid, String name, String email, String password, String phone) {
         this.adminid = adminid;
         this.name = name;
         this.email = email;
@@ -75,34 +74,36 @@ public class Admin {
         this.phone = phone;
     }
 
-    public Admin getAdminData(int id) {
-        Connection conn;
-        PreparedStatement ps;
-        ResultSet rs;
-
-        Admin p = new Admin();
+    public List<Admin> getAllAdminData() {
+       Connection conn;
+      List<Admin> admin = new ArrayList<>();
 
         try {
-            String SQL = "SELECT * FROM admin WHERE id=?";
+            String SQL = "SELECT * FROM ADMIN";
             conn = DBConnection.openConnection();
-            ps = conn.prepareStatement(SQL);
-            ps.setInt(1, id);
-            rs = ps.executeQuery();
-
+            Statement stmt = conn.createStatement();
+        
+          ResultSet rs = stmt.executeQuery(SQL);
             while (rs.next()) {
+                Admin p = new Admin();
+                
                 p.setAdminid(rs.getInt("id"));
                 p.setName(rs.getString("name"));
                 p.setEmail(rs.getString("email"));
                 p.setPassword(rs.getString("password"));
                 p.setPhone(rs.getString("phone"));
+                
+                admin.add(p);
             }
 
         } catch (Exception e) {
         }
 
-        return p;
+        return admin;
 
     }
+    
+  
 
     public void deleteAdminData(int id) {
         Connection conn;

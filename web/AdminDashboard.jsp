@@ -47,7 +47,7 @@
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
            
-            <div class="mt-4 w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+<!--            <div class="mt-4 w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
                   <div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 ">
                      <div class="flex items-center">
                         <div class="flex-shrink-0">
@@ -63,7 +63,7 @@
                   <div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 ">
                      <div class="flex items-center">
                         <div class="flex-shrink-0">
-                           <span class="text-2xl sm:text-3xl leading-none font-bold text-gray-900">1,010</span>
+                           <span class="text-2xl sm:text-3xl leading-none font-bold text-gray-900"></span>
                            <h3 class="text-base font-normal text-gray-500">Patients</h3>
                         </div>
                         <div class="ml-5 w-0 flex items-center justify-end flex-1 text-indigo-500 text-3xl font-bold">
@@ -74,7 +74,7 @@
                   <div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 ">
                      <div class="flex items-center">
                         <div class="flex-shrink-0">
-                           <span class="text-2xl sm:text-3xl leading-none font-bold text-gray-900">200</span>
+                           <span class="text-2xl sm:text-3xl leading-none font-bold text-gray-900"></span>
                            <h3 class="text-base font-normal text-gray-500">Therapist</h3>
                         </div>
                         <div class="ml-5 w-0 flex items-center justify-end flex-1 text-indigo-500 text-3xl font-bold">
@@ -82,7 +82,7 @@
                         </div>
                      </div>
                   </div>
-               </div>
+               </div>-->
             </div>
         </div>
         </div>
