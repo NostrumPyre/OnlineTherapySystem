@@ -52,7 +52,16 @@ public class QuestionaireController extends HttpServlet
             Patient patient = (Patient) session.getAttribute("patient");  
             Questionaire questionaire = new Questionaire();
             
-            questionaire.insertQuestionaire(patient.getPatientid(), gender, age, interest, comm_pref, gen_pref, country, pref_language, patient_condition);
+            questionaire.setGender(gender);
+            questionaire.setAge(age);
+            questionaire.setInterest(interest);
+            questionaire.setComm_pref(comm_pref);
+            questionaire.setGen_pref(gen_pref);
+            questionaire.setCountry(country);
+            questionaire.setPref_language(pref_language);
+            questionaire.setPatient_condition(patient_condition);
+            
+            questionaire.insertQuestionaire(patient.getPatientid(), questionaire.getGender(), questionaire.getAge(), questionaire.getInterest(), questionaire.getComm_pref(), questionaire.getGen_pref(), questionaire.getCountry(), questionaire.getPref_language(), questionaire.getPatient_condition());
 
             RequestDispatcher rd = request.getRequestDispatcher("Therapist.jsp"); 
             rd.forward(request, response); 
