@@ -105,7 +105,7 @@ public class Admin {
     
   
 
-    public void deleteAdminData(int id) {
+    public void deleteAdminData(int adminid) {
         Connection conn;
         PreparedStatement ps;
 
@@ -113,12 +113,13 @@ public class Admin {
             String sqldelete = "DELETE FROM admin WHERE id=?";
             conn = DBConnection.openConnection();
             ps = conn.prepareStatement(sqldelete);
-            ps.setInt(1, id);
+            ps.setInt(1, adminid);
             ps.executeUpdate();
 
-        } catch (Exception e) {
-        }
+        } catch (Exception e) {}
     }
+    
+    
 
     public void addAdmin(String name, String email, String pass, String phone) {
         Connection conn;

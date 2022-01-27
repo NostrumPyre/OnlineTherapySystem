@@ -6,20 +6,19 @@ package Controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Therapist;
+import model.Admin;
 
 /**
  *
  * @author Darlen
  */
-@WebServlet(name = "addTherapistController", urlPatterns = {"/addTherapistController"})
-public class addTherapistController extends HttpServlet {
+@WebServlet(name = "deleteAdminController", urlPatterns = {"/deleteAdminController"})
+public class deleteAdminController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,22 +29,21 @@ public class addTherapistController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String name = (String) request.getParameter("name");
-        String email = (String) request.getParameter("email");
-        String password = (String) request.getParameter("password");
-        String phone = (String) request.getParameter("phone");
-        Date dob = Date.valueOf (request.getParameter("dob"));
-        String gender = (String) request.getParameter("gender");
-        String address = (String) request.getParameter("address");
+         String functionDelete = request.getParameter("functionDelete");
+        if(functionDelete.equals("Delete")){
+            int id = Integer.parseInt(request.getParameter("id"));
         
-        
-        Therapist therapist = new Therapist();
-        therapist.addTherapist(name, email, password, dob, gender, address, phone);
-        
-        request.getRequestDispatcher("therapistData.jsp").forward(request, response);
+
+                Admin pr = new Admin();
+
+                pr.deleteAdminData(id);
+                
+          
         }
+            }
     
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

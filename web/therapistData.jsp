@@ -5,6 +5,24 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.sql.*"%>
+<%@page import="model.Therapist" %>
+<%
+        String id = request.getParameter("id");
+        String driver = "com.mysql.jdbc.Driver";
+        String connectionUrl = "jdbc:mysql://localhost:3306/";
+        String database = "therapionv2";
+        String userid = "root";
+        String password = "";
+        try {
+        Class.forName(driver);
+        } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+        }
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        %>
 <!DOCTYPE html>
 
 <html>
@@ -17,6 +35,8 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    
+    
 </head>
 <body>
       
@@ -43,7 +63,11 @@
   <div class="py-16 px-24  w-full  bg-indigo-300 bg-opacity-50">
     <div class="flex justify-between">
         <h1 class="text-3xl mb-10 text-indigo-600 font-semibold">Therapist Data</h1>
-      
+      <a href="addTherapist.jsp" class="flex h-16 bg-transparent hover:bg-indigo-500 text-indigo-700 font-semibold hover:text-white py-1 px-2 border border-indigo-500 hover:border-transparent rounded">
+            
+        <ion-icon class="my-auto text-2xl mr-2" name="add-circle-outline"></ion-icon><p class="my-auto">Add Therapist Account</p>
+        
+      </a>
     </div>
     <div class="flex flex-col">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -73,22 +97,29 @@
                 </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                
+                <%
+                    try{
+                    connection = DriverManager.getConnection(connectionUrl+database, userid, password);
+                    statement=connection.createStatement();
+                    String sql ="select * from therapist";
+                    resultSet = statement.executeQuery(sql);
+                    while(resultSet.next()){
+                    %>
                 <tr>
                     <td class="px-6 py-4 whitespace-nowrap ">
-                      <div class="text-sm text-gray-500 ">Marlon James</div>
+                      <div class="text-sm text-gray-500 "><%=resultSet.getString("name") %></div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap ">
-                      <div class="text-sm text-gray-500 ">marlonjames@email.com</div>
+                      <div class="text-sm text-gray-500 "><%=resultSet.getString("email") %></div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap ">
-                      <div class="text-sm text-gray-500">10/10/1990</div>
+                      <div class="text-sm text-gray-500"><%=resultSet.getString("dob") %></div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap ">
-                      <div class="text-sm text-gray-500">+62xxxxxxxx</div>
+                      <div class="text-sm text-gray-500"><%=resultSet.getString("phone") %></div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 ">
-                      <div class="text-sm text-gray-500 ">85 E 200th N Pleasant Grove, Utah(UT), 84062</div>
+                      <div class="text-sm text-gray-500 "><%=resultSet.getString("address") %></div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium w-2">
                       <div class="flex gap-2 justify-end">
@@ -101,7 +132,13 @@
                       </div>
                     </td>
                 </tr>
-              
+              <%
+                }
+                connection.close();
+                } catch (Exception e) {
+                e.printStackTrace();
+                }
+                %>
                 </tbody>
             </table>
             </div>
@@ -110,7 +147,24 @@
     </div>
 </div>
 </div>
+<script>
+            function validateform()
+            {
+                var email = document.SignUpForm.email.value;
+                var password = document.SignUpForm.password.value;
+                email_format = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
+                if (!email.match(email_format))
+                {
+                    alert("Not a Valid Email");
+                    return false;
+                } else if (password.length < 8)
+                {
+                    alert("Password must be at least 8 characters");
+                    return false;
+                }
+            }
+        </script>
   
 </body>
 </html>

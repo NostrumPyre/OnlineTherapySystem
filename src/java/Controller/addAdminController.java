@@ -12,14 +12,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Therapist;
+import model.Admin;
 
 /**
  *
  * @author Darlen
  */
-@WebServlet(name = "addTherapistController", urlPatterns = {"/addTherapistController"})
-public class addTherapistController extends HttpServlet {
+@WebServlet(name = "addAdminController", urlPatterns = {"/addAdminController"})
+public class addAdminController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,17 +36,14 @@ public class addTherapistController extends HttpServlet {
         String email = (String) request.getParameter("email");
         String password = (String) request.getParameter("password");
         String phone = (String) request.getParameter("phone");
-        Date dob = Date.valueOf (request.getParameter("dob"));
-        String gender = (String) request.getParameter("gender");
-        String address = (String) request.getParameter("address");
+       
         
         
-        Therapist therapist = new Therapist();
-        therapist.addTherapist(name, email, password, dob, gender, address, phone);
+        Admin admin = new Admin();
+        admin.addAdmin(name, email, password, phone);
         
-        request.getRequestDispatcher("therapistData.jsp").forward(request, response);
-        }
-    
+        request.getRequestDispatcher("adminData.jsp").forward(request, response);
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

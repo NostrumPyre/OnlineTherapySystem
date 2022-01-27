@@ -197,21 +197,21 @@ public class Therapist {
         }
     }
 
-    public void addTherapist(String name, String email, String password, Date dob, String gender, String address, String phone, boolean availability) {
+    public void addTherapist(String name, String email, String password, Date dob, String gender, String address, String phone) {
         Connection conn;
         PreparedStatement ps;
         try {
-            String SQL = "INSERT INTO ADMIN(name, email,password,phone)VALUES(?,?,?,?)";
+            String SQL = "INSERT INTO therapist(name, email,password,dob,gender,address,phone)VALUES(?,?,?,?,?,?,?)";
             conn = DBConnection.openConnection();
             ps = conn.prepareStatement(SQL);
             ps.setString(1, name);
             ps.setString(2, email);
             ps.setString(3, password);
-            ps.setDate(3, dob);
-            ps.setString(3, gender);
-            ps.setString(3, address);
-            ps.setString(4, phone);
-            ps.setBoolean(3, availability);
+            ps.setDate(4, dob);
+            ps.setString(5, gender);
+            ps.setString(6, address);
+            ps.setString(7, phone);
+
             ps.executeUpdate();
 
         } catch (Exception e) {

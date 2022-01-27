@@ -5,6 +5,24 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.sql.*"%>
+<%@page import="model.Patient" %>
+<%
+        String id = request.getParameter("id");
+        String driver = "com.mysql.jdbc.Driver";
+        String connectionUrl = "jdbc:mysql://localhost:3306/";
+        String database = "therapionv2";
+        String userid = "root";
+        String password = "";
+        try {
+        Class.forName(driver);
+        } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+        }
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        %>
 <!doctype html>
 <html>
 <head>
@@ -72,22 +90,29 @@
                 </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                
+                <%
+                    try{
+                    connection = DriverManager.getConnection(connectionUrl+database, userid, password);
+                    statement=connection.createStatement();
+                    String sql ="select * from patient";
+                    resultSet = statement.executeQuery(sql);
+                    while(resultSet.next()){
+                    %>
                 <tr>
                     <td class="px-6 py-4 whitespace-nowrap ">
-                      <div class="text-sm text-gray-500 ">Leslie Alexander</div>
+                      <div class="text-sm text-gray-500 "><%=resultSet.getString("name") %></div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap ">
-                      <div class="text-sm text-gray-500 ">lesliealexander@email.com</div>
+                      <div class="text-sm text-gray-500 "><%=resultSet.getString("email") %></div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap ">
-                      <div class="text-sm text-gray-500">12/12/1995</div>
+                      <div class="text-sm text-gray-500"><%=resultSet.getString("dob") %></div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap ">
-                      <div class="text-sm text-gray-500">+62xxxxxxxx</div>
+                      <div class="text-sm text-gray-500"><%=resultSet.getString("phone") %></div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 ">
-                      <div class="text-sm text-gray-500 ">85 E 200th N Pleasant Grove, Utah(UT), 84062</div>
+                      <div class="text-sm text-gray-500 "><%=resultSet.getString("address") %></div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium w-2">
                       <div class="flex gap-2 justify-end">
@@ -97,7 +122,13 @@
                       </div>
                     </td>
                 </tr>
-              
+              <%
+                }
+                connection.close();
+                } catch (Exception e) {
+                e.printStackTrace();
+                }
+                %>
                 </tbody>
             </table>
             </div>

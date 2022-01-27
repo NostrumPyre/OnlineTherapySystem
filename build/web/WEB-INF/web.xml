@@ -16,6 +16,14 @@
         <servlet-name>addTherapistController</servlet-name>
         <servlet-class>Controller.addTherapistController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>addAdminAccount</servlet-name>
+        <servlet-class>Controller.addAdminController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>deleteAdminController</servlet-name>
+        <servlet-class>Controller.deleteAdminController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AdminController</servlet-name>
         <url-pattern>/AdminController</url-pattern>
@@ -31,6 +39,14 @@
     <servlet-mapping>
         <servlet-name>addTherapistController</servlet-name>
         <url-pattern>/addTherapistController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addAdminAccount</servlet-name>
+        <url-pattern>/addAdminAccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deleteAdminController</servlet-name>
+        <url-pattern>/deleteAdminController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
