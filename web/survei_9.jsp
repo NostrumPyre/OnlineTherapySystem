@@ -99,7 +99,7 @@
                             line-height: 30px; 
                             letter-spacing: 0.1px;
                             color: #FFFFFF">
-                    Now you’re ready to make an account
+                    Now you’re ready to make an appointment
                 </p>
            
                 <input style = "position: absolute; width: 139px; height: 54px; left: 578px; top: 600px; background: #858CE4; border: 2px solid #FFFFFF;
