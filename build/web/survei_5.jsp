@@ -14,8 +14,8 @@
     </head>
     <body style = "position: relative; height: 896px;">
         <%
-            String com_pref = (String) request.getParameter("com_pref");
-            session.setAttribute("com_pref", com_pref);
+            String comm_pref = (String) request.getParameter("comm_pref");
+            session.setAttribute("comm_pref", comm_pref);
         %>         
         
         <div style = "position: absolute; width: 41px; height: 41px; left: 8.51%; top: 70px; border-radius: 50%; background: #858CE4;"></div>
