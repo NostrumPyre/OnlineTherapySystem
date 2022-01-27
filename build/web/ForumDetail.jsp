@@ -35,7 +35,7 @@
             </div>
         <%
              Forum forum = new Forum();
-            forum = (Forum) request.getAttribute("id");
+            forum = (Forum) request.getAttribute("p");
         %>
 <div class="py-12">
     <h2 class="mt-6 text-center text-3xl text-indigo-600 font-semibold">
