@@ -28,6 +28,14 @@
         <servlet-name>ForumQuestionController</servlet-name>
         <servlet-class>Controller.ForumQuestionController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ForumAnswerController</servlet-name>
+        <servlet-class>Controller.ForumDetailsController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ForumController</servlet-name>
+        <servlet-class>Controller.ForumController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AdminController</servlet-name>
         <url-pattern>/AdminController</url-pattern>
@@ -55,6 +63,14 @@
     <servlet-mapping>
         <servlet-name>ForumQuestionController</servlet-name>
         <url-pattern>/ForumQuestionController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ForumAnswerController</servlet-name>
+        <url-pattern>/ForumAnswerController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ForumController</servlet-name>
+        <url-pattern>/ForumController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

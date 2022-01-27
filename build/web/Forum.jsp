@@ -4,24 +4,11 @@
     Author     : Darlen
 --%>
 
+<%@page import="model.Forum"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%
-        String id = request.getParameter("id");
-        String driver = "com.mysql.jdbc.Driver";
-        String connectionUrl = "jdbc:mysql://localhost:3306/";
-        String database = "therapionv2";
-        String userid = "root";
-        String password = "";
-        try {
-        Class.forName(driver);
-        } catch (ClassNotFoundException e) {
-        e.printStackTrace();
-        }
-        Connection connection = null;
-        Statement statement = null;
-        ResultSet resultSet = null;
-        %>
+
 <!DOCTYPE html>
 <html> 
 <head>
@@ -61,12 +48,15 @@
       </a>
     </div>
     <%
-                    try{
-                    connection = DriverManager.getConnection(connectionUrl+database, userid, password);
-                    statement=connection.createStatement();
-                    String sql ="select * from forum";
-                    resultSet = statement.executeQuery(sql);
-                    while(resultSet.next()){
+//                    try{
+//                    connection = DriverManager.getConnection(connectionUrl+database, userid, password);
+//                    statement=connection.createStatement();
+//                    String sql ="select * from forum";
+//                    resultSet = statement.executeQuery(sql);
+//                    while(resultSet.next()){
+
+        ArrayList<Forum> forumList = (ArrayList<Forum>) session.getAttribute("forumList");
+                        for(int i=0;i<forumList.size();i++){
         %>
   <div class="">
     <div class="grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3 m-5 mb-10">
@@ -74,25 +64,25 @@
         
             <div class="bg-white overflow-hidden hover:bg-green-100 border border-gray-200 p-3">
         <div class="m-2 text-justify text-sm">
-            <h2 class="font-bold text-lg h-2 mb-8"><%=resultSet.getString("title") %></h2>
+            <h2 class="font-bold text-lg h-2 mb-8"><%= forumList.get(i).getTitle() %></h2>
             <p class="text-xs">
-              <%=resultSet.getString("forum_question") %>  
+              <%= forumList.get(i).getForum_question() %>  
             </p>
 
         </div>
         <div class="w-full text-right mt-4">
-          <a class="text-green-400 uppercase font-bold text-sm" href="#">Read More</a>
+          <a class="text-green-400 uppercase font-bold text-sm" name="functionView" href="ForumDetail.jsp">Read More</a>
         </div>
     </div>
     </div>
     
     </div>
-            <%
-                }
-                connection.close();
-                } catch (Exception e) {
-                e.printStackTrace();
-                }
+            <% }
+//                }
+//                connection.close();
+//                } catch (Exception e) {
+//                e.printStackTrace();
+//                }
                 %>
   </div>
 </div>

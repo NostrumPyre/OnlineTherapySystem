@@ -36,7 +36,7 @@
     <h2 class="mt-6 text-center text-3xl text-indigo-600 font-semibold">
         Title  
      </h2>
-        <div class="px-4 lg:px-0 mt-12 text-gray-700 max-w-screen-md mx-auto text-lg leading-relaxed">
+        <div  class="px-4 lg:px-0 mt-12 text-gray-700 max-w-screen-md mx-auto text-lg leading-relaxed">
         <p class="pb-6">Advantage old had otherwise sincerity dependent additions. It in adapted natural hastily is
           justice. Six draw
           you him full not mean evil. Prepare garrets it expense windows shewing do an. She projection advantages
