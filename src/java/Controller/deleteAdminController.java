@@ -32,17 +32,12 @@ public class deleteAdminController extends HttpServlet {
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         String functionDelete = request.getParameter("functionDelete");
-        if(functionDelete.equals("Delete")){
-            int id = Integer.parseInt(request.getParameter("id"));
         
-
-                Admin pr = new Admin();
-
-                pr.deleteAdminData(id);
-                
-          
-        }
+            Admin admin  = new Admin();
+            int adminid = Integer.parseInt(request.getParameter("functionDelete")) ;
+            admin.deleteAdminData(adminid);
+            request.getRequestDispatcher("AdminDataController").forward(request, response);
+            
             }
     
 
