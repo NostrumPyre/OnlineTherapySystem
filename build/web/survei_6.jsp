@@ -16,7 +16,7 @@
         <%
             String gen_pref = (String) request.getParameter("gen_pref");
             session.setAttribute("gen_pref", gen_pref);
-        %>           
+        %>         
         
         <div style = "position: absolute; width: 41px; height: 41px; left: 8.51%; top: 70px; border-radius: 50%; background: #858CE4;"></div>
         <p style = "position: absolute; left: 9.48%; right: 98.35%; top: 5.30%; bottom: 83.35%;                            

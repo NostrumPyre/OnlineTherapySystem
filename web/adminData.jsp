@@ -4,6 +4,7 @@
     Author     : Darlen
 --%>
 
+<%@page import="com.sun.xml.rpc.processor.modeler.j2ee.xml.string"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
@@ -97,24 +98,31 @@
                 <tbody class="bg-white divide-y divide-gray-200">
                 
                     <%
+                    /*
                     try{
                     connection = DriverManager.getConnection(connectionUrl+database, userid, password);
                     statement=connection.createStatement();
                     String sql ="select * from admin";
                     resultSet = statement.executeQuery(sql);
-                    while(resultSet.next()){
+                    while(resultSet.next()){*/
+                    %> 
+                    
+                    <%
+                        ArrayList<Admin> adminList = (ArrayList<Admin>) session.getAttribute("adminList");
+                        for(int i=0;i<adminList.size();i++){
                     %>
+                    
                             
                     
                 <tr>
                     <td class="px-6 py-4 whitespace-nowrap ">
-                      <div class="text-sm text-gray-500 "><%=resultSet.getString("name") %></div>
+                        <div class="text-sm text-gray-500 "><%= adminList.get(i).getName() %></div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap ">
-                      <div class="text-sm text-gray-500 "><%=resultSet.getString("email") %></div>
+                      <div class="text-sm text-gray-500 "><%= adminList.get(i).getEmail() %></div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap ">
-                      <div class="text-sm text-gray-500"><%=resultSet.getString("phone") %></div>
+                      <div class="text-sm text-gray-500"><%= adminList.get(i).getPhone() %></div>
                     </td>
                     
                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium w-2">
@@ -128,18 +136,20 @@
                           </ion-icon>
                         </a>-->
                           <form action="deleteAdminController" method="get">
-                          <input type="hidden" name="functionDelete" value="Delete">
+                              <input type="hidden" name="functionDelete" value="<%= adminList.get(i).getAdminid() %>">
                           <input id="viewbutton" type="submit" value="Delete">
                           </form>
                       </div>
                     </td>
                 </tr>
-                <%
+                <%} %>
+                
+                <%/*
                 }
                 connection.close();
                 } catch (Exception e) {
                 e.printStackTrace();
-                }
+                }*/
                 %>
               
                 </tbody>
