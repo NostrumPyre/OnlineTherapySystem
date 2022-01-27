@@ -19,8 +19,18 @@ public class Forum {
     private String forum_question;
     private String forum_answer;
     private String title;
+    
+    
     public Forum() {
     }
+
+    public Forum(int forumid, String forum_question, String forum_answer, String title) {
+        this.forumid = forumid;
+        this.forum_question = forum_question;
+        this.forum_answer = forum_answer;
+        this.title = title;
+    }
+    
 
     public String getTitle() {
         return title;
@@ -110,7 +120,7 @@ public class Forum {
        
           while(rs.next())
           {
-              
+              forum.setForumid(rs.getInt("id"));
               forum.setForum_question(rs.getString("forum_question"));
               forum.setTitle(rs.getString("title"));
           }
