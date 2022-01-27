@@ -6,20 +6,21 @@ package Controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Admin;
+import javax.servlet.http.HttpSession;
+import model.Forum;
 
 /**
  *
  * @author Darlen
  */
-@WebServlet(name = "addAdminController", urlPatterns = {"/addAdminController"})
-public class addAdminController extends HttpServlet {
+@WebServlet(name = "ForumDetailsController", urlPatterns = {"/ForumDetailsController"})
+public class ForumDetailsController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,17 +33,16 @@ public class addAdminController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String name = (String) request.getParameter("name");
-        String email = (String) request.getParameter("email");
-        String password = (String) request.getParameter("password");
-        String phone = (String) request.getParameter("phone");
-       
         
-        
-        Admin admin = new Admin();
-        admin.addAdmin(name, email, password, phone);
-        
-        request.getRequestDispatcher("AdminDataController").forward(request, response);
+        int id = Integer.parseInt(request.getParameter("functionView"));
+
+                Forum pr = new Forum();
+                Forum p = new Forum();
+
+                p = pr.getForumQuestion(id);
+
+                
+                request.getRequestDispatcher("ForumDetail.jsp").forward(request,response); 
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

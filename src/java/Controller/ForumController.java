@@ -6,20 +6,25 @@ package Controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Admin;
+import javax.servlet.http.HttpSession;
+import model.Forum;
+import model.DBConnection;
 
 /**
  *
  * @author Darlen
  */
-@WebServlet(name = "addAdminController", urlPatterns = {"/addAdminController"})
-public class addAdminController extends HttpServlet {
+@WebServlet(name = "ForumController", urlPatterns = {"/ForumController"})
+public class ForumController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,17 +37,12 @@ public class addAdminController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String name = (String) request.getParameter("name");
-        String email = (String) request.getParameter("email");
-        String password = (String) request.getParameter("password");
-        String phone = (String) request.getParameter("phone");
-       
+        Forum forum = new Forum();
+        ArrayList<Forum> forumList = forum.getAllForumData();
         
-        
-        Admin admin = new Admin();
-        admin.addAdmin(name, email, password, phone);
-        
-        request.getRequestDispatcher("AdminDataController").forward(request, response);
+        HttpSession session = request.getSession();
+        session.setAttribute("forumList", forumList);
+        request.getRequestDispatcher("Forum.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

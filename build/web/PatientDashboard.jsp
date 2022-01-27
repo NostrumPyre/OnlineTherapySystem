@@ -39,7 +39,7 @@
             </div>
             <div class = "py-16 px-24  w-full  bg-indigo-300 bg-opacity-50">
                 <div class = "flex justify-between">
-                    <h1 class = "text-3xl mb-10 text-indigo-600 font-semibold">Dashboard</h1>
+                    <h1 class = "text-3xl mb-10 text-indigo-600 font-semibold">Therapion</h1>
                 </div>
                 <div class = "flex flex-col">
                     <div class = "-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">

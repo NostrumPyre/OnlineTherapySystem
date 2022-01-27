@@ -36,14 +36,16 @@ public class QuestionaireController extends HttpServlet
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) 
         {
-            String gender = (String) request.getParameter("gender");
-            String age = (String) request.getParameter("age");
-            String interest = (String) request.getParameter("interest");
-            String comm_pref = (String) request.getParameter("comm_pref");
-            String gen_pref = (String) request.getParameter("gen_pref");
-            String country = (String) request.getParameter("country");
-            String pref_language = (String) request.getParameter("pref_language");
-            String patient_condition = (String) request.getParameter("patient_condition");
+            HttpSession session = request.getSession();
+            
+            String gender = (String) session.getAttribute("gender");
+            String age = (String) session.getAttribute("age"); 
+            String interest = (String) session.getAttribute("interest");
+            String comm_pref = (String) session.getAttribute("comm_pref");
+            String gen_pref = (String) session.getAttribute("gen_pref");
+            String country = (String) session.getAttribute("country");
+            String pref_language = (String) session.getAttribute("pref_language");
+            String patient_condition = (String) session.getAttribute("patient_condition");
             
             Questionaire questionaire = new Questionaire();
             
