@@ -24,7 +24,7 @@
                     <ul class="nav nav-pills">
                         <li class="nav-item"><a href="landingPage.jsp" class="nav-link">Home</a></li>
                         <li class="nav-item"><a href="advicePage.jsp" class="nav-link">Advice</a></li>
-                        <li class="nav-item"><a href="Forum.jsp" class="nav-link">Forum</a></li>
+                        <li class="nav-item"><a href="ForumController" class="nav-link">Forum</a></li>
                         <li class="nav-item"><a href="contactUs.jsp" class="nav-link active" >Contact</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">About Us</a></li>
                     </ul>

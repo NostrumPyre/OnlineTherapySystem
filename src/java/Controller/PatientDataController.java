@@ -13,14 +13,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.Forum;
+import model.Patient;
 
 /**
  *
  * @author Darlen
  */
-@WebServlet(name = "ForumDetailsController", urlPatterns = {"/ForumDetailsController"})
-public class ForumDetailsController extends HttpServlet {
+@WebServlet(name = "PatientDataController", urlPatterns = {"/PatientDataController"})
+public class PatientDataController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,20 +33,12 @@ public class ForumDetailsController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Patient patient = new Patient();
+        ArrayList<Patient> patientList = patient.getAllPatient();
         
-                int id = Integer.parseInt(request.getParameter("id"));
-
-                Forum f = new Forum();
-                Forum forum = new Forum();
-
-                forum = f.getForumQuestion(id);
-
-                HttpSession session = request.getSession();
-                session.setAttribute("forum", forum);
-                request.getRequestDispatcher("ForumDetail.jsp").forward(request,response); 
-                
-            
-                
+        HttpSession session = request.getSession();
+        session.setAttribute("patientList", patientList);
+        request.getRequestDispatcher("patientData.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -27,22 +27,24 @@
                     <ul class="nav nav-pills">
                         <li class="nav-item"><a href="landingPage.jsp" class="nav-link ">Home</a></li>
                         <li class="nav-item"><a href="advicePage.jsp" class="nav-link">Advice</a></li>
-                        <li class="nav-item"><a href="Forum.jsp" class="nav-link active">Forum</a></li>
+                        <li class="nav-item"><a href="ForumController" class="nav-link active">Forum</a></li>
                         <li class="nav-item"><a href="contactUs.jsp" class="nav-link" >Contact</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">About Us</a></li>
                     </ul>
                 </header>
             </div>
         <%
-             Forum forum = new Forum();
-            forum = (Forum) request.getAttribute("p");
+             Forum f = new Forum();
+            f = (Forum) request.getAttribute("forum");
+            
+  
         %>
 <div class="py-12">
     <h2 class="mt-6 text-center text-3xl text-indigo-600 font-semibold">
-        <%=forum.getTitle()%>
+        <%=f.getTitle()%>
      </h2>
         <div  class="px-4 lg:px-0 mt-12 text-gray-700 max-w-screen-md mx-auto text-lg leading-relaxed">
-        <p class="pb-6"><%=forum.getForum_question()%></p>
+        <p class="pb-6"><%=f.getForum_question()%></p>
     </div>
     </div>
     </body>

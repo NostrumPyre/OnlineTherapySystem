@@ -4,6 +4,7 @@
     Author     : Darlen
 --%>
 
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*"%>
 <%@page import="model.Patient" %>
@@ -53,7 +54,7 @@
     <nav :class="{'block': open, 'hidden': !open}" class="flex-grow md:block px-4 pb-4 md:pb-0 md:overflow-y-auto">
       <a class="block px-4 py-2 mt-2 text-sm font-semibold text-indigo-600 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-indigo-600 dark-mode:focus:bg-indigo-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-white focus:text-gray-900 hover:bg-indigo-600 focus:bg-white focus:outline-none focus:shadow-outline" href="AdminDashboard.jsp">Dashboard</a>
       <a class="block px-4 py-2 mt-2 text-sm font-semibold text-indigo-600 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-indigo-600 dark-mode:focus:bg-indigo-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-white focus:text-gray-900 hover:bg-indigo-600 focus:bg-white focus:outline-none focus:shadow-outline" href="AdminDataController">Admin Data</a>
-      <a class="block px-4 py-2 mt-2 text-sm font-semibold text-white bg-indigo-600 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-indigo-600 dark-mode:focus:bg-indigo-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-indigo-600 focus:bg-white focus:outline-none focus:shadow-outline" href="patientData.jsp">Patient Data</a>
+      <a class="block px-4 py-2 mt-2 text-sm font-semibold text-white bg-indigo-600 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-indigo-600 dark-mode:focus:bg-indigo-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-indigo-600 focus:bg-white focus:outline-none focus:shadow-outline" href="PatientDataController">Patient Data</a>
       <a class="block px-4 py-2 mt-2 text-sm font-semibold text-indigo-600 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-indigo-600 dark-mode:focus:bg-indigo-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-white focus:text-gray-900 hover:bg-indigo-600 focus:bg-white focus:outline-none focus:shadow-outline" href="TherapistController">Therapist Data</a>
     </nav>
   </div>
@@ -91,28 +92,34 @@
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
                 <%
-                    try{
-                    connection = DriverManager.getConnection(connectionUrl+database, userid, password);
-                    statement=connection.createStatement();
-                    String sql ="select * from patient";
-                    resultSet = statement.executeQuery(sql);
-                    while(resultSet.next()){
+                   // try{
+                    //connection = DriverManager.getConnection(connectionUrl+database, userid, password);
+                    //statement=connection.createStatement();
+                    //String sql ="select * from patient";
+                   // resultSet = statement.executeQuery(sql);
+                    //while(resultSet.next()){
+                    
+                        
+                    ArrayList<Patient> patientList = (ArrayList<Patient>) session.getAttribute("patientList");
+                    for(int i=0;i<patientList.size();i++){
+                    
+
                     %>
                 <tr>
                     <td class="px-6 py-4 whitespace-nowrap ">
-                      <div class="text-sm text-gray-500 "><%=resultSet.getString("name") %></div>
+                      <div class="text-sm text-gray-500 "><%= patientList.get(i).getName() %></div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap ">
-                      <div class="text-sm text-gray-500 "><%=resultSet.getString("email") %></div>
+                      <div class="text-sm text-gray-500 "><%= patientList.get(i).getEmail() %></div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap ">
-                      <div class="text-sm text-gray-500"><%=resultSet.getString("dob") %></div>
+                      <div class="text-sm text-gray-500"><%= patientList.get(i).getDob() %></div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap ">
-                      <div class="text-sm text-gray-500"><%=resultSet.getString("phone") %></div>
+                      <div class="text-sm text-gray-500"><%= patientList.get(i).getPhone() %></div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 ">
-                      <div class="text-sm text-gray-500 "><%=resultSet.getString("address") %></div>
+                      <div class="text-sm text-gray-500 "><%= patientList.get(i).getAddress() %></div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium w-2">
                       <div class="flex gap-2 justify-end">
@@ -123,11 +130,7 @@
                     </td>
                 </tr>
               <%
-                }
-                connection.close();
-                } catch (Exception e) {
-                e.printStackTrace();
-                }
+                  }
                 %>
                 </tbody>
             </table>

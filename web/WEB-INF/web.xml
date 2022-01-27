@@ -36,6 +36,10 @@
         <servlet-name>ForumController</servlet-name>
         <servlet-class>Controller.ForumController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PatientDataController</servlet-name>
+        <servlet-class>Controller.PatientDataController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AdminController</servlet-name>
         <url-pattern>/AdminController</url-pattern>
@@ -71,6 +75,10 @@
     <servlet-mapping>
         <servlet-name>ForumController</servlet-name>
         <url-pattern>/ForumController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PatientDataController</servlet-name>
+        <url-pattern>/PatientDataController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

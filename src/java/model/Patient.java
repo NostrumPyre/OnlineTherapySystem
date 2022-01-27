@@ -132,18 +132,7 @@ public class Patient {
       }catch(Exception e){}  
     }
     
-    public void insertFormQuestion(String form_question) {
-       Connection conn;
-       PreparedStatement ps;
-      try{
-          String SQL = "INSERT INTO PATIENT(form_question)VALUES(?) WHERE id=?";
-          conn = DBConnection.openConnection();
-          ps = conn.prepareStatement(SQL);
-          ps.setString(1, form_question);
-          ps.executeUpdate();
-          
-      }catch(Exception e){}  
-    }
+    
     
     public Patient getPatient(int id) {
       Connection conn;

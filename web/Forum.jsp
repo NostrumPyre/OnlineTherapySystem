@@ -31,7 +31,7 @@
                     <ul class="nav nav-pills">
                         <li class="nav-item"><a href="landingPage.jsp" class="nav-link ">Home</a></li>
                         <li class="nav-item"><a href="advicePage.jsp" class="nav-link">Advice</a></li>
-                        <li class="nav-item"><a href="Forum.jsp" class="nav-link active">Forum</a></li>
+                        <li class="nav-item"><a href="ForumController" class="nav-link active">Forum</a></li>
                         <li class="nav-item"><a href="contactUs.jsp" class="nav-link" >Contact</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">About Us</a></li>
                     </ul>
@@ -65,18 +65,17 @@
 
         </div>
         <div class="w-full text-right mt-4">
-          <a class="text-green-400 uppercase font-bold text-sm" name="functionView" href="ForumDetailsController">Read More</a>
+          <form action="ForumDetailsController">
+                                <input type="hidden" name="id" value="<%= forumList.get(i).getForumid() %>">
+                                <input type="Submit" value="Read More">
+          </form>
         </div>
     </div>
     </div>
     
     </div>
             <% }
-//                }
-//                connection.close();
-//                } catch (Exception e) {
-//                e.printStackTrace();
-//                }
+
                 %>
   </div>
 </div>

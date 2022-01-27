@@ -99,10 +99,10 @@ public class Forum {
       Connection conn;
       PreparedStatement ps;
       ResultSet rs;   
-      Forum p= new Forum();
+      Forum forum= new Forum();
       
       try{
-          String SQL = "SELECT * FROM Forum WHERE id=?";
+          String SQL = "SELECT * FROM FORUM WHERE id=?";
           conn = DBConnection.openConnection();
           ps = conn.prepareStatement(SQL);
           ps.setInt(1, id);
@@ -110,14 +110,14 @@ public class Forum {
        
           while(rs.next())
           {
-              p.setForumid(rs.getInt("id"));
-              p.setForum_question(rs.getString("forum_question"));
-              p.setTitle(rs.getString("title"));
+              
+              forum.setForum_question(rs.getString("forum_question"));
+              forum.setTitle(rs.getString("title"));
           }
           
       }catch(Exception e){}
       
-      return p;
+      return forum;
         
     }  
     
