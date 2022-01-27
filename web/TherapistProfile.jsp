@@ -30,40 +30,49 @@
                 </div>
             </header>
             <div>
+                <%/*
+                    ArrayList<Therapist> therapistList = (ArrayList<Therapist>) session.getAttribute("therapistList");
+                    for (int i = 0; i < therapistList.size(); i++) {
+                        if (therapistList.get(i).getTherapistid() == Integer.parseInt(request.getParameter("id"))) { */
+                %>
+                
                 <%
-             ArrayList<Therapist> therapistList = (ArrayList<Therapist>) session.getAttribute("therapistList");
-                        for(int i=0;i<therapistList.size();i++){
-                             if(therapistList.get(i).getTherapistid() == Integer.parseInt(request.getParameter("id"))) {
-                 %>
+                    Therapist therapist = (Therapist) session.getAttribute("therapist");
+                %>
                 <h2>Profile</h2>
                 <div class="container" style="width: 800px; margin-top: 30px;">
                     <form action="UpdateProfileController">
                         <div class="mb-3">
                             <label class="form-label">Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="<%=therapistList.get(i).getName()%>">
+                            <input type="text" class="form-control" name="name" id="name" placeholder="<%= therapist.getName() %>">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="<%=therapistList.get(i).getEmail()%>">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="<%= therapist.getEmail() %>">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Password</label>
+                            <input type="text" class="form-control" name="password" id="password" placeholder="<%= therapist.getPassword() %>">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Phone</label>
-                            <input type="text" class="form-control" id="phoneNumber" placeholder="<%=therapistList.get(i).getPhone()%>">
+                            <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" placeholder="<%= therapist.getPhone() %>">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Address</label>
-                            <input type="text" class="form-control" id="address" placeholder="<%=therapistList.get(i).getAddress()%>">
+                            <input type="text" class="form-control" name="address" id="address" placeholder="<%= therapist.getAddress() %>">
                         </div>
-                        
+
                         <input type="hidden" name="id" value="1">
                         <button class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" type="Submit">
-                              <p>Update</p>
+                            <p>Update</p>
                         </button>
                     </form>
-                        <% 
-                            }}
-                        
-                        %>
+                    <%  /*
+                            }
+                        } */
+
+                    %>
                 </div>
             </div>
         </div>

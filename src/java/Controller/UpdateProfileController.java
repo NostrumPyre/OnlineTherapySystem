@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.Therapist;
 
 /**
@@ -31,28 +32,28 @@ public class UpdateProfileController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-              String name = request.getParameter("name");
-              String email = request.getParameter("email");
-              String password = request.getParameter("password");
-              String address = request.getParameter("address");
-              String phone = request.getParameter("phone");
-              
+        HttpSession session = request.getSession();
+        Therapist therapist = (Therapist) session.getAttribute("therapist");
+//        int id = Integer.parseInt(request.getParameter("id"));
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        String address = request.getParameter("address");
+        String phone = request.getParameter("phoneNumber");
 
-             Therapist t = new Therapist();
+        Therapist updatedTherapist = new Therapist();
 
-               t.setName(name);
-               t.setEmail(email);
-               t.setPassword(password);
-               t.setAddress(address);
-               t.setPhone(phone);
-                
+        updatedTherapist.setName(name);
+        updatedTherapist.setEmail(email);
+        updatedTherapist.setPassword(password);
+        updatedTherapist.setAddress(address);
+        updatedTherapist.setPhone(phone);
 
-              Therapist pr = new Therapist();
+        Therapist pr = new Therapist();
 
-               pr.updateTherapist(id, t);
-               
-               request.getRequestDispatcher("TherapistDashboard.jsp").forward(request, response);
+        pr.updateTherapist(therapist.getTherapistid(), updatedTherapist);
+
+        request.getRequestDispatcher("TherapistDashboard.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
