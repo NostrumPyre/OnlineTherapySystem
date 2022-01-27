@@ -13,22 +13,6 @@
 <%@page import="model.Admin" %>
 <%@page import="model.DBConnection" %>
 <%@page import="Controller.AdminDataController" %>
-<%
-        String id = request.getParameter("id");
-        String driver = "com.mysql.jdbc.Driver";
-        String connectionUrl = "jdbc:mysql://localhost:3306/";
-        String database = "therapionv2";
-        String userid = "root";
-        String password = "";
-        try {
-        Class.forName(driver);
-        } catch (ClassNotFoundException e) {
-        e.printStackTrace();
-        }
-        Connection connection = null;
-        Statement statement = null;
-        ResultSet resultSet = null;
-        %>
 <!DOCTYPE html>
         
 <html>
@@ -97,15 +81,6 @@
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
                 
-                    <%
-                    /*
-                    try{
-                    connection = DriverManager.getConnection(connectionUrl+database, userid, password);
-                    statement=connection.createStatement();
-                    String sql ="select * from admin";
-                    resultSet = statement.executeQuery(sql);
-                    while(resultSet.next()){*/
-                    %> 
                     
                     <%
                         ArrayList<Admin> adminList = (ArrayList<Admin>) session.getAttribute("adminList");
@@ -144,13 +119,6 @@
                 </tr>
                 <%} %>
                 
-                <%/*
-                }
-                connection.close();
-                } catch (Exception e) {
-                e.printStackTrace();
-                }*/
-                %>
               
                 </tbody>
             </table>

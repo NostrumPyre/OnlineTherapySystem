@@ -10,6 +10,8 @@ import java.sql.Time;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -142,6 +144,35 @@ public class Appointment {
 
         return p;
 
+    }
+    
+    public ArrayList<Appointment> getAllAppointment() {
+      Connection conn;
+      ArrayList<Appointment> appointmentList = new ArrayList<>();
+      
+      try{
+          String SQL = "SELECT * FROM APPOINTMENT";
+          conn = DBConnection.openConnection();
+          Statement stmt = conn.createStatement();
+        
+          ResultSet rs = stmt.executeQuery(SQL);
+          
+          while(rs.next()){
+              Appointment p = new Appointment();
+              
+                p.setAppointmentid(rs.getInt("id"));
+                p.setPatientid(rs.getInt("patient_id"));
+                p.setTherapistid(rs.getInt("therapist_id"));
+                p.setStatus(rs.getInt("status"));
+                p.setDate(rs.getDate("date"));
+                p.setTime_from(rs.getTime("time_from"));
+                p.setTime_to(rs.getTime("time_to"));
+              
+              appointmentList.add(p);    
+          }    
+      }catch(Exception e){}
+      
+      return appointmentList;
     }
 
     public void deleteAppointment(int id) {

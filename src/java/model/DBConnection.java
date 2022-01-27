@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  */
 public class DBConnection {
     
-    private static final String connectionURL = "jdbc:mysql://localhost:8888";
+    private static final String connectionURL = "jdbc:mysql://localhost:8889/";
     private static final String driver = "com.mysql.jdbc.Driver";
     private static final String username = "root";
     private static final String password = "root";

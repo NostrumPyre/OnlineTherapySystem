@@ -42,7 +42,7 @@ public class addAdminController extends HttpServlet {
         Admin admin = new Admin();
         admin.addAdmin(name, email, password, phone);
         
-        request.getRequestDispatcher("adminData.jsp").forward(request, response);
+        request.getRequestDispatcher("AdminDataController").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
