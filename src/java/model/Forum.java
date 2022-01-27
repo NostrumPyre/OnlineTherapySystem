@@ -68,6 +68,24 @@ public class Forum {
       }catch(Exception e){}  
     }
     
+    public void insertForumAnswer(int id, Forum f) {
+       Connection conn;
+       PreparedStatement ps;
+       try{
+            String sqlupdate = "UPDATE FORUM SET forum_answer=? WHERE id =?";
+            conn = DBConnection.openConnection();
+            ps = conn.prepareStatement(sqlupdate);
+            ps.setString(1,f.getForum_answer());
+            ps.setInt(2,id);
+            ps.executeUpdate();
+            
+        }catch(Exception e){}
+    }  
+    
+    
+    
+    
+    
     public ArrayList<Forum> getAllForumData() {
        Connection conn;
        ArrayList<Forum> forumList = new ArrayList<>();
@@ -83,6 +101,7 @@ public class Forum {
                 
                 p.setForumid(rs.getInt("id"));
                 p.setForum_question(rs.getString("forum_question"));
+                p.setForum_answer(rs.getString("forum_answer"));
                 p.setTitle(rs.getString("title"));
                 
                 forumList.add(p);
@@ -110,7 +129,7 @@ public class Forum {
        
           while(rs.next())
           {
-              
+              forum.setForumid(rs.getInt("id"));
               forum.setForum_question(rs.getString("forum_question"));
               forum.setTitle(rs.getString("title"));
           }

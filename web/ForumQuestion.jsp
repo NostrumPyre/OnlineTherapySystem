@@ -30,6 +30,7 @@
                         <li class="nav-item"><a href="Forum.jsp" class="nav-link active">Forum</a></li>
                         <li class="nav-item"><a href="contactUs.jsp" class="nav-link" >Contact</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">About Us</a></li>
+                        <li class="nav-item"><a href="LogoutController" class="nav-link">Log Out</a></li>
                     </ul>
                 </header>
             </div>

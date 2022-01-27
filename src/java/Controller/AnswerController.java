@@ -7,16 +7,19 @@ package Controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Forum;
 
+
 /**
  *
  * @author Darlen
  */
-public class ForumQuestionController extends HttpServlet {
+@WebServlet(name = "AnswerController", urlPatterns = {"/AnswerController"})
+public class AnswerController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,14 +32,20 @@ public class ForumQuestionController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
-        String forum_question = (String) request.getParameter("forum_question");
-        String title = (String) request.getParameter("title");
-        
-        Forum forum = new Forum();
-        forum.insertForumQuestion(forum_question, title);
-        
-        request.getRequestDispatcher("ForumQuestion.jsp").forward(request, response);
+        int id = Integer.parseInt(request.getParameter("id"));
+              String forum_answer = request.getParameter("forum_answer");
+              
+
+             Forum f = new Forum();
+
+               f.setForum_answer(forum_answer);
+                
+
+              Forum pr = new Forum();
+
+               pr.insertForumAnswer(id, f);
+               
+               request.getRequestDispatcher("Forum.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

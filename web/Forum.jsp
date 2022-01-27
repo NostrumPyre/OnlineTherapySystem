@@ -34,6 +34,7 @@
                         <li class="nav-item"><a href="ForumController" class="nav-link active">Forum</a></li>
                         <li class="nav-item"><a href="contactUs.jsp" class="nav-link" >Contact</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">About Us</a></li>
+                        <li class="nav-item"><a href="LogoutController" class="nav-link">Log Out</a></li>
                     </ul>
                 </header>
             </div>
@@ -51,6 +52,7 @@
 
         ArrayList<Forum> forumList = (ArrayList<Forum>) session.getAttribute("forumList");
                         for(int i=0;i<forumList.size();i++){
+                           
         %>
   <div class="">
     <div class="grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3 m-5 mb-10">
@@ -62,7 +64,8 @@
             <p class="text-xs">
               <%= forumList.get(i).getForum_question() %>  
             </p>
-
+            
+            
         </div>
         <div class="w-full text-right mt-4">
           <form action="ForumDetailsController">
