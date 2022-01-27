@@ -73,7 +73,7 @@
             About us
         </p>
         <center>
-            <form name = "Survei_8_Form" method = "post" action = "signup.jsp" onsubmit = "return validateForm()">
+            <form name = "Survei_8_Form" method = "post" action = "QuestionaireController" onsubmit = "return validateForm()">
                 <h1 style = "position: absolute; width: 1037px; height: 54px; left: 130px; top: 179px;
                              font-family: Mulish; font-style: normal; font-weight: normal; font-size: 44px;
                              line-height: 55px;
