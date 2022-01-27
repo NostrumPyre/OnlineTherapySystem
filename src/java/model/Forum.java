@@ -19,8 +19,18 @@ public class Forum {
     private String forum_question;
     private String forum_answer;
     private String title;
+    
+    
     public Forum() {
     }
+
+    public Forum(int forumid, String forum_question, String forum_answer, String title) {
+        this.forumid = forumid;
+        this.forum_question = forum_question;
+        this.forum_answer = forum_answer;
+        this.title = title;
+    }
+    
 
     public String getTitle() {
         return title;
@@ -68,6 +78,24 @@ public class Forum {
       }catch(Exception e){}  
     }
     
+    public void insertForumAnswer(int id, Forum f) {
+       Connection conn;
+       PreparedStatement ps;
+       try{
+            String sqlupdate = "UPDATE FORUM SET forum_answer=? WHERE id =?";
+            conn = DBConnection.openConnection();
+            ps = conn.prepareStatement(sqlupdate);
+            ps.setString(1,f.getForum_answer());
+            ps.setInt(2,id);
+            ps.executeUpdate();
+            
+        }catch(Exception e){}
+    }  
+    
+    
+    
+    
+    
     public ArrayList<Forum> getAllForumData() {
        Connection conn;
        ArrayList<Forum> forumList = new ArrayList<>();
@@ -83,6 +111,7 @@ public class Forum {
                 
                 p.setForumid(rs.getInt("id"));
                 p.setForum_question(rs.getString("forum_question"));
+                p.setForum_answer(rs.getString("forum_answer"));
                 p.setTitle(rs.getString("title"));
                 
                 forumList.add(p);
@@ -99,10 +128,10 @@ public class Forum {
       Connection conn;
       PreparedStatement ps;
       ResultSet rs;   
-      Forum p= new Forum();
+      Forum forum= new Forum();
       
       try{
-          String SQL = "SELECT * FROM Forum WHERE id=?";
+          String SQL = "SELECT * FROM FORUM WHERE id=?";
           conn = DBConnection.openConnection();
           ps = conn.prepareStatement(SQL);
           ps.setInt(1, id);
@@ -110,14 +139,14 @@ public class Forum {
        
           while(rs.next())
           {
-              p.setForumid(rs.getInt("id"));
-              p.setForum_question(rs.getString("forum_question"));
-              p.setTitle(rs.getString("title"));
+              forum.setForumid(rs.getInt("id"));
+              forum.setForum_question(rs.getString("forum_question"));
+              forum.setTitle(rs.getString("title"));
           }
           
       }catch(Exception e){}
       
-      return p;
+      return forum;
         
     }  
     

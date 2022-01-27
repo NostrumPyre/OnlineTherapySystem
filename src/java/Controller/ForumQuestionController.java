@@ -33,8 +33,8 @@ public class ForumQuestionController extends HttpServlet {
         String forum_question = (String) request.getParameter("forum_question");
         String title = (String) request.getParameter("title");
         
-        Forum patient = new Forum();
-        patient.insertForumQuestion(forum_question, title);
+        Forum forum = new Forum();
+        forum.insertForumQuestion(forum_question, title);
         
         request.getRequestDispatcher("ForumQuestion.jsp").forward(request, response);
     }

@@ -34,15 +34,25 @@ public class ForumDetailsController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        int id = Integer.parseInt(request.getParameter("functionView"));
-
-                Forum pr = new Forum();
-                Forum p = new Forum();
-
-                p = pr.getForumQuestion(id);
-
+//                int id = Integer.parseInt(request.getParameter("id"));
+//
+//                Forum f = new Forum();
+//                Forum forum = new Forum();
+//
+//                forum = f.getForumQuestion(id);
+//
+//                HttpSession session = request.getSession();
+//                session.setAttribute("forum", forum);
+//                request.getRequestDispatcher("ForumDetail.jsp").forward(request,response); 
                 
-                request.getRequestDispatcher("ForumDetail.jsp").forward(request,response); 
+        Forum forum = new Forum();
+        ArrayList<Forum> forumList = forum.getAllForumData();
+        
+        HttpSession session = request.getSession();
+        session.setAttribute("forumList", forumList);
+        request.getRequestDispatcher("ForumDetail.jsp").forward(request, response);
+            
+                
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

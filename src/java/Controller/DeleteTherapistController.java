@@ -36,7 +36,7 @@ public class DeleteTherapistController extends HttpServlet {
         int therapistid = Integer.parseInt(request.getParameter("functionDelete"));
         Therapist therapist = new Therapist();
         therapist.deleteTherapist(therapistid);
-        request.getRequestDispatcher("TherapistDataController").forward(request, response);
+        request.getRequestDispatcher("TherapistController").forward(request, response);
         
     }
 

@@ -4,6 +4,8 @@
     Author     : thoriqulhaqjibrilalqudsy
 --%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="model.Therapist"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -50,36 +52,44 @@
             </div>
         </div>
     </nav>
+        <% /*
+             ArrayList<Therapist> therapistList = (ArrayList<Therapist>) session.getAttribute("therapistList");
+                        for(int i=0;i<therapistList.size();i++){
+                             if(therapistList.get(i).getTherapistid() == Integer.parseInt(request.getParameter("id"))) { */
+        %>
         
+        <%
+            Therapist therapist = (Therapist) session.getAttribute("therapist");
+        %>
 <div class="bg-white">
   <div class="pt-16">
     <!-- Product info -->
     <div class="max-w-2xl mx-auto pt-10 pb-16 px-4 sm:px-6 lg:max-w-7xl lg:pt-16 lg:pb-24 lg:px-8 lg:grid lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8">
       <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
         <h1 class="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
-          Dr. Leslie Alexander
+          <%= therapist.getName() %>
         </h1>
       </div>
 
       <!-- Options -->
       <div class="mt-4 lg:mt-0 lg:row-span-3">
         
-        <form class="mt-0">
+          <form action="MakeAppointmentController" class="mt-0">
 
           <!-- Sizes -->
           <div class="mt-10">
 
                 <label for="date" class="block text-sm font-medium text-gray-700">Date</label>
-                <input type="date" name="street-address" id="date-appointment" class="mt-1 p-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                <input type="date" name="date-appointment" id="date-appointment" class="mt-1 p-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
           </div>
           <div class="mt-10">
 
                 <label for="time-from" class="block text-sm font-medium text-gray-700">Time From</label>
-                <input type="time" name="street-address" id="time-from-appointment" class="mt-1 p-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                <input type="time" name="time-from-appointment" id="time-from-appointment" class="mt-1 p-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
           </div>
           <div class="mt-10">
                 <label for="time-to" class="block text-sm font-medium text-gray-700">Time To</label>
-                <input type="time" name="street-address" id="time-to-appointment" class="mt-1 p-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                <input type="time" name="time-to-appointment" id="time-to-appointment" class="mt-1 p-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
           </div>
 
           <button type="submit" class="mt-20 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Make Appointment</button>
@@ -111,7 +121,7 @@
           Full name
         </dt>
         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-          Leslie Alexander
+            <%= therapist.getName() %>
         </dd>
       </div>
       <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -119,7 +129,7 @@
           Gender
         </dt>
         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-          Female
+          <%= therapist.getGender() %>
         </dd>
       </div>
       <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -135,7 +145,7 @@
           Religion
         </dt>
         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-          Christian
+          Muslim
         </dd>
       </div>
     </dl>
@@ -147,7 +157,7 @@
     </div>
   </div>
 </div>
-
+<% /* }} */%>
 
     </body>
 </html>

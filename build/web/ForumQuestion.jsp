@@ -30,6 +30,7 @@
                         <li class="nav-item"><a href="Forum.jsp" class="nav-link active">Forum</a></li>
                         <li class="nav-item"><a href="contactUs.jsp" class="nav-link" >Contact</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">About Us</a></li>
+                        <li class="nav-item"><a href="LogoutController" class="nav-link">Log Out</a></li>
                     </ul>
                 </header>
             </div>
@@ -59,7 +60,7 @@
                                 <option>Save and Publish</option>
                                 <option>Save Draft</option>
                             </select>
-                            <button role="submit" class="p-3 bg-blue-500 text-white hover:bg-blue-400" required>Submit</button>
+                            <button role="submit" class="p-3 bg-indigo-500 text-white hover:bg-indigo-400" required>Submit</button>
                         </div>
                     </form>
                 </div>
