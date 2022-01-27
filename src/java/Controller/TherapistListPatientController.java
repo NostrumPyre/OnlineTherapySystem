@@ -1,6 +1,7 @@
-    /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package Controller;
 
@@ -17,10 +18,10 @@ import model.Therapist;
 
 /**
  *
- * @author Darlen
+ * @author rhyth
  */
-@WebServlet(name = "TherapistController", urlPatterns = {"/TherapistController"})
-public class TherapistController extends HttpServlet {
+@WebServlet(name = "TherapistListPatientController", urlPatterns = {"/TherapistListPatientController"})
+public class TherapistListPatientController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,15 +34,14 @@ public class TherapistController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-              
         
         Therapist therapist = new Therapist();
         ArrayList<Therapist> therapistList = therapist.getAllTherapist();
         
         HttpSession session = request.getSession();
         session.setAttribute("therapistList", therapistList);
-        request.getRequestDispatcher("therapistData.jsp").forward(request, response);
-//        request.getRequestDispatcher("Therapist.jsp").forward(request, response);
+        request.getRequestDispatcher("Therapist.jsp").forward(request, response);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -64,7 +64,7 @@ public class QuestionaireController extends HttpServlet {
             
             questionaire.insertQuestionaire(patient.getPatientid(), questionaire.getGender(), questionaire.getAge(), questionaire.getInterest(), questionaire.getComm_pref(), questionaire.getGen_pref(), questionaire.getCountry(), questionaire.getPref_language(), questionaire.getPatient_condition());
 
-            request.getRequestDispatcher("TherapistController").forward(request, response);
+            request.getRequestDispatcher("TherapistListPatientController").forward(request, response);
 
         }
     }
