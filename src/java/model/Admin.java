@@ -74,16 +74,16 @@ public class Admin {
         this.phone = phone;
     }
 
-    public List<Admin> getAllAdminData() {
+    public ArrayList<Admin> getAllAdminData() {
        Connection conn;
-      List<Admin> admin = new ArrayList<>();
+       ArrayList<Admin> adminList = new ArrayList<>();
 
         try {
             String SQL = "SELECT * FROM ADMIN";
             conn = DBConnection.openConnection();
             Statement stmt = conn.createStatement();
         
-          ResultSet rs = stmt.executeQuery(SQL);
+           ResultSet rs = stmt.executeQuery(SQL);
             while (rs.next()) {
                 Admin p = new Admin();
                 
@@ -93,13 +93,13 @@ public class Admin {
                 p.setPassword(rs.getString("password"));
                 p.setPhone(rs.getString("phone"));
                 
-                admin.add(p);
+                adminList.add(p);
             }
 
         } catch (Exception e) {
         }
 
-        return admin;
+        return adminList;
 
     }
     
