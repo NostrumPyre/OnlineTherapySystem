@@ -13,6 +13,11 @@
         <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
     </head>
     <body style = "position: relative; height: 896px;">
+        <%
+            String country = (String) request.getParameter("country");
+            session.setAttribute("country", country);
+        %>         
+        
         <div style = "position: absolute; width: 41px; height: 41px; left: 8.51%; top: 70px; border-radius: 50%; background: #858CE4;"></div>
         <p style = "position: absolute; left: 9.48%; right: 98.35%; top: 5.30%; bottom: 83.35%;                            
                     font-family: Mulish; font-style: normal; font-weight: bold; font-size: 26px;
