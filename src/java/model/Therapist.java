@@ -9,6 +9,8 @@ import java.sql.Date;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -146,6 +148,39 @@ public class Therapist {
         return p;
 
     }
+    
+    
+    public ArrayList<Therapist> getAllTherapist() {
+      Connection conn;
+      ArrayList<Therapist> therapistList = new ArrayList<>();
+      
+      try{
+          String SQL = "SELECT * FROM THERAPIST";
+          conn = DBConnection.openConnection();
+          Statement stmt = conn.createStatement();
+        
+          ResultSet rs = stmt.executeQuery(SQL);
+          
+          while(rs.next()){
+              Therapist p = new Therapist();
+              
+              p.setTherapistid(rs.getInt("id"));
+              p.setName(rs.getString("name"));
+              p.setEmail(rs.getString("email"));
+              p.setPassword(rs.getString("password"));
+              p.setPhone(rs.getString("phone"));
+              p.setDob(rs.getDate("dob"));
+              p.setGender(rs.getString("gender"));
+              p.setAddress(rs.getString("address"));
+              p.setAvailability(rs.getBoolean("availability"));
+              
+              therapistList.add(p);    
+          }    
+      }catch(Exception e){}
+      
+      return therapistList;
+    }
+    
 
     public void deleteTherapist(int id) {
         Connection conn;
