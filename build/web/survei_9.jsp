@@ -13,6 +13,11 @@
         <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
     </head>
     <body style = "position: relative; height: 896px;">
+        <%
+            String patient_condition = (String) request.getParameter("patient_condition");
+            session.setAttribute("patient_condition", patient_condition);
+        %>           
+        
         <div style = "position: absolute; width: 41px; height: 41px; left: 8.51%; top: 70px; border-radius: 50%; background: #858CE4;"></div>
         <p style = "position: absolute; left: 9.48%; right: 98.35%; top: 5.30%; bottom: 83.35%;                            
                     font-family: Mulish; font-style: normal; font-weight: bold; font-size: 26px;
@@ -68,7 +73,7 @@
             About us
         </p>
         <center>
-            <form name = "Survei_8_Form" method = "post" action = "signup.jsp" onsubmit = "return validateForm()">
+            <form name = "Survei_8_Form" method = "post" action = "QuestionaireController" onsubmit = "return validateForm()">
                 <h1 style = "position: absolute; width: 1037px; height: 54px; left: 130px; top: 179px;
                              font-family: Mulish; font-style: normal; font-weight: normal; font-size: 44px;
                              line-height: 55px;
