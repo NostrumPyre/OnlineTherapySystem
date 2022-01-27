@@ -53,7 +53,7 @@ public class QuestionaireController extends HttpServlet
             
             questionaire.insertQuestionaire(patient.getPatientid(), gender, age, interest, comm_pref, gen_pref, country, pref_language, patient_condition);
 
-            RequestDispatcher rd = request.getRequestDispatcher("signup.jsp"); 
+            RequestDispatcher rd = request.getRequestDispatcher("Therapist.jsp"); 
             rd.forward(request, response); 
         }
     }
