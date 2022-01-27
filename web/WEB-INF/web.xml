@@ -48,6 +48,14 @@
         <servlet-name>LogoutController</servlet-name>
         <servlet-class>Controller.LogoutController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DetailTherapistController</servlet-name>
+        <servlet-class>Controller.DetailTherapistController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TherapistListPatientController</servlet-name>
+        <servlet-class>Controller.TherapistListPatientController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AdminController</servlet-name>
         <url-pattern>/AdminController</url-pattern>
@@ -95,6 +103,14 @@
     <servlet-mapping>
         <servlet-name>LogoutController</servlet-name>
         <url-pattern>/LogoutController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DetailTherapistController</servlet-name>
+        <url-pattern>/DetailTherapistController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TherapistListPatientController</servlet-name>
+        <url-pattern>/TherapistListPatientController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

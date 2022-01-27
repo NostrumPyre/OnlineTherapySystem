@@ -4,6 +4,8 @@
     Author     : thoriqulhaqjibrilalqudsy
 --%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="model.Therapist"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -50,14 +52,18 @@
             </div>
         </div>
     </nav>
-        
+        <%
+             ArrayList<Therapist> therapistList = (ArrayList<Therapist>) session.getAttribute("therapistList");
+                        for(int i=0;i<therapistList.size();i++){
+                             if(therapistList.get(i).getTherapistid() == Integer.parseInt(request.getParameter("id"))) {
+        %>
 <div class="bg-white">
   <div class="pt-16">
     <!-- Product info -->
     <div class="max-w-2xl mx-auto pt-10 pb-16 px-4 sm:px-6 lg:max-w-7xl lg:pt-16 lg:pb-24 lg:px-8 lg:grid lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8">
       <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
         <h1 class="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
-          Dr. Leslie Alexander
+          <%=therapistList.get(i).getName()%>
         </h1>
       </div>
 
@@ -147,7 +153,7 @@
     </div>
   </div>
 </div>
-
+<% }} %>
 
     </body>
 </html>

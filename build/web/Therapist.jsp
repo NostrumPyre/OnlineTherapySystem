@@ -76,10 +76,11 @@
                             <%= therapistList.get(i).getName() %>
                         </p>
                     </div>
-                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                        <button class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-full">
-                        Make Appointment
-                      </button>
+                    <div class="inline-flex items-center text-base font-semibold text-indigo-600 dark:text-white">
+                        <form action="DetailTherapistController">
+                                <input type="hidden" name="id" value="<%= therapistList.get(i).getTherapistid() %>">
+                                <input type="Submit" value="Make Appointment">
+                            </form>
                     </div>
                 </div>
             </li>
