@@ -48,9 +48,10 @@ public class QuestionaireController extends HttpServlet
             String pref_language = (String) session.getAttribute("pref_language");
             String patient_condition = (String) session.getAttribute("patient_condition");
             
+            Patient patient = (Patient) session.getAttribute("patient");  
             Questionaire questionaire = new Questionaire();
             
-            questionaire.insertQuestionaire(0, gender, age, interest, comm_pref, gen_pref, country, pref_language, patient_condition);
+            questionaire.insertQuestionaire(patient.getPatientid(), gender, age, interest, comm_pref, gen_pref, country, pref_language, patient_condition);
 
             RequestDispatcher rd = request.getRequestDispatcher("signup.jsp"); 
             rd.forward(request, response); 
