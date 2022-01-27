@@ -50,6 +50,54 @@
             </div>
         </div>
     </nav>
+        
+        <!-- This is an example component -->
+<div class="mx-auto">
+
+	<div class="p-4 mb-4 mt-32 mx-48 bg-white rounded-lg border shadow-md sm:p-8 dark:bg-white dark:border-white">
+    <div class="flex justify-between items-center mb-4">
+        <h3 class="text-2xl font-bold leading-none text-gray-900 dark:text-indigo-500">Our Therapist</h3>
+   </div>
+   <div class="flow">
+        <ul role="list" class="divide-y divide-gray-200">
+            <li class="py-3 sm:py-4">
+                <div class="flex items-center space-x-4">
+                    <div class="flex-shrink-0">
+                        <img class="w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-1.jpg" alt="Neil image">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-medium text-gray-900 truncate dark:text-indigo-500">
+                            Dr. Leslie Alexander
+                        </p>
+                    </div>
+                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                        <button class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-full">
+                        Make Appointment
+                      </button>
+                    </div>
+                </div>
+            </li>
+            <li class="py-3 sm:py-4">
+                <div class="flex items-center space-x-4">
+                    <div class="flex-shrink-0">
+                        <img class="w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-3.jpg" alt="Bonnie image">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-medium text-gray-900 truncate dark:text-indigo-500">
+                            Dr. Leslie Alexander
+                        </p>
+                    </div>
+                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                        <button class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-full">
+                        Make Appointment
+                      </button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+   </div>
+</div>
+</div>
 
     </body>
 </html>
