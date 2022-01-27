@@ -22,10 +22,10 @@
                     </a>
 
                     <ul class="nav nav-pills">
-                        <li class="nav-item"><a href="#" class="nav-link active">Home</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Advice</a></li>
+                        <li class="nav-item"><a href="landingPage.jsp" class="nav-link active">Home</a></li>
+                        <li class="nav-item"><a href="advicePage.jsp" class="nav-link">Advice</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">Testimonials</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link" >Contact</a></li>
+                        <li class="nav-item"><a href="contactUs.jsp" class="nav-link" >Contact</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">About Us</a></li>
                     </ul>
                 </header>
