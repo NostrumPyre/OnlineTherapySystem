@@ -17,11 +17,11 @@ import java.util.logging.Logger;
  */
 public class DBConnection {
     
-    private static final String connectionURL = "jdbc:mysql://localhost:3306/";
+    private static final String connectionURL = "jdbc:mysql://localhost:8888";
     private static final String driver = "com.mysql.jdbc.Driver";
     private static final String username = "root";
-    private static final String password = "";
-    private static final String database = "therapionv2";
+    private static final String password = "root";
+    private static final String database = "therapion";
     private static Connection conn = null;
     
     
