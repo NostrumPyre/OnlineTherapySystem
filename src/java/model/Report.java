@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.Date;
 import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -104,6 +106,32 @@ public class Report {
       
       return r;
         
+    }
+    
+    public ArrayList<Report> getAllReport() {
+      Connection conn;
+      ArrayList<Report> reportList = new ArrayList<>();
+      
+      try{
+          String SQL = "SELECT * FROM REPORT";
+          conn = DBConnection.openConnection();
+          Statement stmt = conn.createStatement();
+        
+          ResultSet rs = stmt.executeQuery(SQL);
+          
+          while(rs.next()){
+              Report r = new Report();
+              
+               r.setReportid(rs.getInt("id"));
+               r.setAppointmentid(rs.getInt("appointment_id"));
+               r.setResult(rs.getString("result"));
+               r.setDate(rs.getDate("date"));
+              
+              reportList.add(r);    
+          }    
+      }catch(Exception e){}
+      
+      return reportList;
     }
     
 }

@@ -8,6 +8,8 @@ package model;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -144,7 +146,7 @@ public class Questionaire {
     }
     
     
-    public Questionaire getProject(int id) {
+    public Questionaire getQuestionaire(int id) {
       Connection conn;
       PreparedStatement ps;
       ResultSet rs;   
@@ -175,6 +177,38 @@ public class Questionaire {
       
       return q;
         
-    }  
+    }
+    
+    public ArrayList<Questionaire> getAllQuestionaire() {
+      Connection conn;
+      ArrayList<Questionaire> questionaireList = new ArrayList<>();
+      
+      try{
+          String SQL = "SELECT * FROM QUESTIONAIRE";
+          conn = DBConnection.openConnection();
+          Statement stmt = conn.createStatement();
+        
+          ResultSet rs = stmt.executeQuery(SQL);
+          
+          while(rs.next()){
+              Questionaire q = new Questionaire();
+              
+              q.setQuestionaireid(rs.getInt("id"));
+              q.setPatientid(rs.getInt("patient_id"));
+              q.setGender(rs.getString("gender"));
+              q.setAge(rs.getString("age"));
+              q.setInterest(rs.getString("interest"));
+              q.setComm_pref(rs.getString("comm_pref"));
+              q.setGen_pref(rs.getString("gen_pref"));
+              q.setCountry(rs.getString("country"));
+              q.setPref_language(rs.getString("pref_language"));
+              q.setPatient_condition(rs.getString("patient_condition"));
+              
+              questionaireList.add(q);    
+          }    
+      }catch(Exception e){}
+      
+      return questionaireList;
+    }
     
 }
