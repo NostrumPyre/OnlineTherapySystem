@@ -1,25 +1,27 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package Controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Admin;
+import javax.servlet.http.HttpSession;
+import model.Therapist;
 
 /**
  *
- * @author Darlen
+ * @author rhyth
  */
-@WebServlet(name = "addAdminController", urlPatterns = {"/addAdminController"})
-public class addAdminController extends HttpServlet {
+@WebServlet(name = "TherapistDataController", urlPatterns = {"/TherapistDataController"})
+public class TherapistDataController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,17 +34,11 @@ public class addAdminController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String name = (String) request.getParameter("name");
-        String email = (String) request.getParameter("email");
-        String password = (String) request.getParameter("password");
-        String phone = (String) request.getParameter("phone");
-       
-        
-        
-        Admin admin = new Admin();
-        admin.addAdmin(name, email, password, phone);
-        
-        request.getRequestDispatcher("AdminDataController").forward(request, response);
+        Therapist therapist = new Therapist();
+        ArrayList<Therapist> therapistList = (ArrayList<Therapist>) therapist.getAllTherapist();
+        HttpSession session = request.getSession();
+        session.setAttribute("therapistList", therapistList);
+        request.getRequestDispatcher("therapistData.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

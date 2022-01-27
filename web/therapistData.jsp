@@ -4,25 +4,10 @@
     Author     : Darlen
 --%>
 
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*"%>
 <%@page import="model.Therapist" %>
-<%
-        String id = request.getParameter("id");
-        String driver = "com.mysql.jdbc.Driver";
-        String connectionUrl = "jdbc:mysql://localhost:3306/";
-        String database = "therapionv2";
-        String userid = "root";
-        String password = "";
-        try {
-        Class.forName(driver);
-        } catch (ClassNotFoundException e) {
-        e.printStackTrace();
-        }
-        Connection connection = null;
-        Statement statement = null;
-        ResultSet resultSet = null;
-        %>
 <!DOCTYPE html>
 
 <html>
@@ -97,48 +82,45 @@
                 </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                <%
-                    try{
-                    connection = DriverManager.getConnection(connectionUrl+database, userid, password);
-                    statement=connection.createStatement();
-                    String sql ="select * from therapist";
-                    resultSet = statement.executeQuery(sql);
-                    while(resultSet.next()){
-                    %>
+                    
+                <% 
+                    ArrayList<Therapist> therapistList = (ArrayList<Therapist>) session.getAttribute("therapistList");
+                    for(int i=0;i<therapistList.size();i++){
+                %>
+                    
                 <tr>
                     <td class="px-6 py-4 whitespace-nowrap ">
-                      <div class="text-sm text-gray-500 "><%=resultSet.getString("name") %></div>
+                        <div class="text-sm text-gray-500 "><%= therapistList.get(i).getName() %></div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap ">
-                      <div class="text-sm text-gray-500 "><%=resultSet.getString("email") %></div>
+                      <div class="text-sm text-gray-500 "><%= therapistList.get(i).getEmail() %></div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap ">
-                      <div class="text-sm text-gray-500"><%=resultSet.getString("dob") %></div>
+                      <div class="text-sm text-gray-500"><%= therapistList.get(i).getDob() %></div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap ">
-                      <div class="text-sm text-gray-500"><%=resultSet.getString("phone") %></div>
+                      <div class="text-sm text-gray-500"><%= therapistList.get(i).getPhone() %></div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 ">
-                      <div class="text-sm text-gray-500 "><%=resultSet.getString("address") %></div>
+                      <div class="text-sm text-gray-500 "><%= therapistList.get(i).getAddress() %></div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium w-2">
                       <div class="flex gap-2 justify-end">
                         <a href="">
                           <ion-icon class="text-xl text-indigo-800" name="create-outline"></ion-icon>
                         </a>
-                        <a href="">
+                         <form action="DeleteTherapistController" method="get">
+                              <input type="hidden" name="functionDelete" value="<%= therapistList.get(i).getTherapistid() %>">
+                              <input class="btn" id="viewbutton" type="submit" value="Delete">
+                          </form>
+<!--                        <a href="">
                           <ion-icon class="text-xl text-indigo-800" name="trash-outline"></ion-icon>
-                        </a>
+                        </a>-->
                       </div>
                     </td>
                 </tr>
-              <%
-                }
-                connection.close();
-                } catch (Exception e) {
-                e.printStackTrace();
-                }
-                %>
+                <%} %>
+
                 </tbody>
             </table>
             </div>
