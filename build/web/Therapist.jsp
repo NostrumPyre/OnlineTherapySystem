@@ -4,6 +4,8 @@
     Author     : thoriqulhaqjibrilalqudsy
 --%>
 
+<%@page import="model.Therapist"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -58,6 +60,10 @@
     <div class="flex justify-between items-center mb-4">
         <h3 class="text-2xl font-bold leading-none text-gray-900 dark:text-indigo-500">Our Therapist</h3>
    </div>
+             <%
+                        ArrayList<Therapist> therapistList = (ArrayList<Therapist>) session.getAttribute("therapistList");
+                        for(int i=0;i<therapistList.size();i++){
+                    %>
    <div class="flow">
         <ul role="list" class="divide-y divide-gray-200">
             <li class="py-3 sm:py-4">
@@ -67,7 +73,7 @@
                     </div>
                     <div class="flex-1 min-w-0">
                         <p class="text-sm font-medium text-gray-900 truncate dark:text-indigo-500">
-                            Dr. Leslie Alexander
+                            <%= therapistList.get(i).getName() %>
                         </p>
                     </div>
                     <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
@@ -77,24 +83,9 @@
                     </div>
                 </div>
             </li>
-            <li class="py-3 sm:py-4">
-                <div class="flex items-center space-x-4">
-                    <div class="flex-shrink-0">
-                        <img class="w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-3.jpg" alt="Bonnie image">
-                    </div>
-                    <div class="flex-1 min-w-0">
-                        <p class="text-sm font-medium text-gray-900 truncate dark:text-indigo-500">
-                            Dr. Leslie Alexander
-                        </p>
-                    </div>
-                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                        <button class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-full">
-                        Make Appointment
-                      </button>
-                    </div>
-                </div>
-            </li>
+            
         </ul>
+       <%} %>
    </div>
 </div>
 </div>

@@ -5,50 +5,52 @@
         <group>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/Controller/PatientController.java</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/Controller/LoginController.java</file>
-            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/nbproject/build-impl.xml</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/web/advicePage.jsp</file>
-            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/.gitignore</file>
-            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/Controller/DeleteTherapistController.java</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/Controller/addTherapistController.java</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/Controller/ForumDetailsController.java</file>
+            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/nbproject/build-impl.xml~</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/nbproject/project.xml</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/web/Forum.jsp</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/web/ReportAdmin.jsp</file>
-            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/web/addTherapist.jsp</file>
-            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/model/Questionaire.java</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/nbproject/genfiles.properties</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/Controller/SignUpController.java</file>
-            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/nbproject/project.properties</file>
-            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/model/DBConnection.java</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/Controller/AdminDataController.java</file>
-            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/web/landingPage.jsp</file>
-            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/web/DetailTherapist.jsp</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/web/adminData.jsp</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/Controller/addAdminController.java</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/model/Forum.java</file>
-            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/web/ForumDetail.jsp</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/model/Admin.java</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/Controller/ForumController.java</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/web/therapistData.jsp</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/Controller/ForumQuestionController.java</file>
-            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/Controller/QuestionaireController.java</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/model/Appointment.java</file>
-            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/web/contactUs.jsp</file>
-            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/Controller/deleteAdminController.java</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/web/AdminDashboard.jsp</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/web/patientData.jsp</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/web/TherapistDashboard.jsp</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/web/login.jsp</file>
-            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/Controller/TherapistController.java</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/web/PatientCondition.jsp</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/web/appointments.jsp</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/model/Report.java</file>
-            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/web/signup.jsp</file>
+            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/web/Therapist.jsp</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/model/Therapist.java</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/web/ForumQuestion.jsp</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/web/PatientDashboard.jsp</file>
-            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/web/WEB-INF/web.xml</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/model/Patient.java</file>
+            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/.gitignore</file>
+            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/Controller/DeleteTherapistController.java</file>
+            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/Controller/TherapistDataController.java</file>
+            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/web/addTherapist.jsp</file>
+            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/model/Questionaire.java</file>
+            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/nbproject/project.properties</file>
+            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/model/DBConnection.java</file>
+            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/web/landingPage.jsp</file>
+            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/web/DetailTherapist.jsp</file>
+            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/web/ForumDetail.jsp</file>
+            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/Controller/QuestionaireController.java</file>
+            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/web/contactUs.jsp</file>
+            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/Controller/deleteAdminController.java</file>
+            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/src/java/Controller/TherapistController.java</file>
+            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/web/signup.jsp</file>
+            <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/web/WEB-INF/web.xml</file>
             <file>file:/C:/Users/Darlen/Documents/NetBeansProjects/OnlineTherapySystem/web/addAdmin.jsp</file>
         </group>
     </open-files>

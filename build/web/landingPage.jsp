@@ -24,7 +24,7 @@
                     <ul class="nav nav-pills">
                         <li class="nav-item"><a href="landingPage.jsp" class="nav-link active">Home</a></li>
                         <li class="nav-item"><a href="advicePage.jsp" class="nav-link">Advice</a></li>
-                        <li class="nav-item"><a href="Forum.jsp" class="nav-link">Forum</a></li>
+                        <li class="nav-item"><a href="ForumController" class="nav-link">Forum</a></li>
                         <li class="nav-item"><a href="contactUs.jsp" class="nav-link" >Contact</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">About Us</a></li>
                     </ul>
@@ -36,7 +36,7 @@
                         <h1>Professional therapy anytime, anywhere.</h1><br>
                         <p>Therapion provides access to a qualified therapist that is accessible, discrete, and affordable online for everyone</p><br>
                         <div class="">
-                            <button type="button" class="btn" style="background-color: #858CE4;color: white;border-radius: 30px;">Consult Today</button>
+                            <a href="survei_1.jsp" type="button" class="btn" style="background-color: #858CE4;color: white;border-radius: 30px;">Consult Today</a>
                         </div>
                     </div>
                     <div class="col-6">

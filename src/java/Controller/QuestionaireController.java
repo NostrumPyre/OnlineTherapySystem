@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.Questionaire;
 /*
  *
@@ -51,7 +52,7 @@ public class QuestionaireController extends HttpServlet
             
             questionaire.insertQuestionaire(0, gender, age, interest, comm_pref, gen_pref, country, pref_language, patient_condition);
 
-            RequestDispatcher rd = request.getRequestDispatcher("signup.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("signup.jsp"); 
             rd.forward(request, response); 
         }
     }

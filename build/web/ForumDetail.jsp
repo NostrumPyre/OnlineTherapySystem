@@ -4,6 +4,7 @@
     Author     : Darlen
 --%>
 
+<%@page import="model.Forum"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -32,16 +33,16 @@
                     </ul>
                 </header>
             </div>
+        <%
+             Forum forum = new Forum();
+            forum = (Forum) request.getAttribute("id");
+        %>
 <div class="py-12">
     <h2 class="mt-6 text-center text-3xl text-indigo-600 font-semibold">
-        Title  
+        <%=forum.getTitle()%>
      </h2>
         <div  class="px-4 lg:px-0 mt-12 text-gray-700 max-w-screen-md mx-auto text-lg leading-relaxed">
-        <p class="pb-6">Advantage old had otherwise sincerity dependent additions. It in adapted natural hastily is
-          justice. Six draw
-          you him full not mean evil. Prepare garrets it expense windows shewing do an. She projection advantages
-          resolution son indulgence. Part sure on no long life am at ever. In songs above he as drawn to. Gay was
-          outlived peculiar rendered led six.</p>
+        <p class="pb-6"><%=forum.getForum_question()%></p>
     </div>
     </div>
     </body>

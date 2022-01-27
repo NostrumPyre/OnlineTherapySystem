@@ -34,11 +34,11 @@ public class TherapistDataController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Therapist therapist = new Therapist();
-        ArrayList<Therapist> therapistList = (ArrayList<Therapist>) therapist.getAllTherapist();
-        HttpSession session = request.getSession();
-        session.setAttribute("therapistList", therapistList);
-        request.getRequestDispatcher("therapistData.jsp").forward(request, response);
+//        Therapist therapist = new Therapist();
+//        ArrayList<Therapist> therapistList = (ArrayList<Therapist>) therapist.getAllTherapist();
+//        HttpSession session = request.getSession();
+//        session.setAttribute("therapistList", therapistList);
+//        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

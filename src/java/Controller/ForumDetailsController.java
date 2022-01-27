@@ -34,14 +34,15 @@ public class ForumDetailsController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        int id = Integer.parseInt(request.getParameter("functionView"));
+                int id = Integer.parseInt(request.getParameter("id"));
 
                 Forum pr = new Forum();
                 Forum p = new Forum();
 
                 p = pr.getForumQuestion(id);
 
-                
+                HttpSession session = request.getSession();
+                session.setAttribute("p", p);
                 request.getRequestDispatcher("ForumDetail.jsp").forward(request,response); 
     }
 

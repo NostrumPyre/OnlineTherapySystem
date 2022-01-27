@@ -48,12 +48,6 @@
       </a>
     </div>
     <%
-//                    try{
-//                    connection = DriverManager.getConnection(connectionUrl+database, userid, password);
-//                    statement=connection.createStatement();
-//                    String sql ="select * from forum";
-//                    resultSet = statement.executeQuery(sql);
-//                    while(resultSet.next()){
 
         ArrayList<Forum> forumList = (ArrayList<Forum>) session.getAttribute("forumList");
                         for(int i=0;i<forumList.size();i++){
@@ -71,7 +65,7 @@
 
         </div>
         <div class="w-full text-right mt-4">
-          <a class="text-green-400 uppercase font-bold text-sm" name="functionView" href="ForumDetail.jsp">Read More</a>
+          <a class="text-green-400 uppercase font-bold text-sm" name="functionView" href="ForumDetailsController">Read More</a>
         </div>
     </div>
     </div>

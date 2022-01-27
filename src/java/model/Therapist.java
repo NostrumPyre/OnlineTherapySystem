@@ -181,6 +181,8 @@ public class Therapist {
       return therapistList;
     }
     
+    
+    
 
     public void deleteTherapist(int id) {
         Connection conn;
