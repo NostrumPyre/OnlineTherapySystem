@@ -96,21 +96,21 @@
                             line-height: 35px;
                             letter-spacing: 0.1px;
                             color: #FFFFFF;" 
-                   type = "submit" name = "gender_id" value = "Male" /> <br/> <br/> 
+                   type = "submit" name = "gender" value = "Male" /> <br/> <br/> 
             <input style = "position: absolute; width: 261px; height: 54px; left: 515px; top: 560px; background-color: #858CE4; border: 2px solid #FFFFFF;
                             font-family: Mulish; font-style: normal; font-weight: bold; font-size: 28px; 
                             text-align: left;
                             line-height: 35px; 
                             letter-spacing: 0.1px;
                             color: #FFFFFF;" 
-                   type = "submit" name = "gender_id" value = "Female" /> <br/> <br/>
+                   type = "submit" name = "gender" value = "Female" /> <br/> <br/>
             <input style = "position: absolute; width: 261px; height: 54px; left: 515px; top: 640px; background-color: #858CE4; border: 2px solid #FFFFFF;
                             font-family: Mulish; font-style: normal; font-weight: bold; font-size: 28px;
                             text-align: left;
                             line-height: 35px;
                             letter-spacing: 0.1px;
                             color: #FFFFFF;" 
-                   type = "submit" name = "gender_id" value = "Other" /> <br/> <br/>
+                   type = "submit" name = "gender" value = "Other" /> <br/> <br/>
             </form>       
     </body>
 </html>
