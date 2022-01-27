@@ -14,8 +14,8 @@
     </head>
     <body style = "position: relative; height: 896px;">
         <%
-            String patient_condition = (String) request.getParameter("patient_condition");
-            session.setAttribute("patient_condition", patient_condition);
+            String pationt_condition = (String) request.getParameter("pationt_condition");
+            session.setAttribute("pationt_condition", pationt_condition);
         %>         
         
         <div style = "position: absolute; width: 41px; height: 41px; left: 8.51%; top: 70px; border-radius: 50%; background: #858CE4;"></div>
