@@ -11,7 +11,7 @@
 
 <!DOCTYPE html>
 <html> 
-<head>
+    <head>
         <meta charset = "utf-8">
         <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
         <link href = "" rel = "stylesheet">
@@ -22,11 +22,11 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     </head>
     <body class="bg-gray-100 text-gray-700  font-sans quicksand"> 
-<div class="container">
-                <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-                    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-                        <span class="fs-4">Therapion</span>
-                    </a>
+        <div class="container">
+            <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                    <span class="fs-4">Therapion</span>
+                </a>
 
                     <ul class="nav nav-pills">
                         <li class="nav-item"><a href="landingPage.jsp" class="nav-link ">Home</a></li>
@@ -37,18 +37,19 @@
                         <li class="nav-item"><a href="LogoutController" class="nav-link">Log Out</a></li>
                     </ul>
                 </header>
+                
+        </div>
+        <!-- component -->
+        <div class="py-16 px-24  w-full  bg-indigo-300 bg-opacity-50">
+            <div class="flex justify-between">
+                <h1 class="text-3xl mb-10 text-indigo-600 font-semibold"></h1>
+                <a href="ForumQuestion.jsp" class="flex h-16  hover:bg-indigo-500 text-indigo-700 font-semibold hover:text-white py-1 px-2 border-2 border-indigo-500 hover:border-transparent rounded">
+
+                    <ion-icon class="my-auto text-2xl mr-2" name="add-circle-outline"></ion-icon><p class="my-auto">Add A New Post</p>
+
+                </a>
             </div>
-<!-- component -->
-<div class="py-16 px-24  w-full  bg-indigo-300 bg-opacity-50">
-    <div class="flex justify-between">
-        <h1 class="text-3xl mb-10 text-indigo-600 font-semibold"></h1>
-        <a href="ForumQuestion.jsp" class="flex h-16  hover:bg-indigo-500 text-indigo-700 font-semibold hover:text-white py-1 px-2 border-2 border-indigo-500 hover:border-transparent rounded">
-            
-        <ion-icon class="my-auto text-2xl mr-2" name="add-circle-outline"></ion-icon><p class="my-auto">Add A New Post</p>
-        
-      </a>
-    </div>
-    <%
+            <%
 
         ArrayList<Forum> forumList = (ArrayList<Forum>) session.getAttribute("forumList");
                         for(int i=0;i<forumList.size();i++){
@@ -71,18 +72,18 @@
           <form action="ForumDetailsController">
                                 <input type="hidden" name="id" value="<%= forumList.get(i).getForumid() %>">
                                 <input type="Submit" value="Read More">
-          </form>
-        </div>
-    </div>
-    </div>
-    
-    </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
             <% }
 
-                %>
-  </div>
-</div>
-
+            %>
+        </div>
     
-    </body>
-    </html>
+
+
+</body>
+</html>

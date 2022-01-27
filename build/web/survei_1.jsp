@@ -4,6 +4,7 @@
     Author     : syafa
 --%>
 
+<%@page import="model.Questionaire"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -67,6 +68,7 @@
                     opacity: 0.5;">
             About us
         </p>
+
         <form name = "Survei_1_Form" method = "post" action = "survei_2.jsp" onsubmit = "return validateForm()">
             <center>
                 <h1 style = "position: absolute; width: 1037px; height: 54px; left: 130px; top: 179px;

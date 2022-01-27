@@ -14,7 +14,7 @@
     </head>
     <body style = "position: relative; height: 896px;">
         <%
-            String interest = (String) request.getParameter("interest");
+            String interest = (String) request.getParameter("preference");
             session.setAttribute("interest", interest);
         %>          
         
