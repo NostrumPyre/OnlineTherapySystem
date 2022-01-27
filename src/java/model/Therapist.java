@@ -220,4 +220,23 @@ public class Therapist {
         }
     }
     
+    public void updateTherapist(int id, Therapist t) {
+       Connection conn;
+       PreparedStatement ps;
+       try{
+            String sqlupdate = "UPDATE THERAPIST SET name=? email=? password=? address=? phone=? WHERE id =?";
+            conn = DBConnection.openConnection();
+            ps = conn.prepareStatement(sqlupdate);
+            ps.setString(1,t.getName());
+            ps.setString(2, t.getEmail());
+            ps.setString(3, t.getPassword());
+            ps.setString(4, t.getAddress());
+            ps.setString(5, t.getPhone());
+            ps.setInt(6,id);
+            ps.executeUpdate();
+            
+        }catch(Exception e){}
+    }  
+    
+    
 }

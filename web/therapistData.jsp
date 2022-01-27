@@ -110,12 +110,18 @@
                           <ion-icon class="text-xl text-indigo-800" name="create-outline"></ion-icon>
                         </a>
                          <form action="DeleteTherapistController" method="get">
-                              <input type="hidden" name="functionDelete" value="<%= therapistList.get(i).getTherapistid() %>">
+                              <input type="hidden" name="functionDelete" value="">
                               <input class="btn" id="viewbutton" type="submit" value="Delete">
                           </form>
 <!--                        <a href="">
-                          <ion-icon class="text-xl text-indigo-800" name="trash-outline"></ion-icon>
+                          
                         </a>-->
+                                <form action="DeleteTherapistController">
+                                    <input type="hidden" name="functionDelete" value="<%= therapistList.get(i).getTherapistid() %>">
+                                    <button class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" type="Submit">
+                                       <ion-icon class="text-xl text-indigo-800" name="trash-outline"></ion-icon>
+                                    </button>
+                                </form>
                       </div>
                     </td>
                 </tr>

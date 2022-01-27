@@ -56,6 +56,14 @@
         <servlet-name>TherapistListPatientController</servlet-name>
         <servlet-class>Controller.TherapistListPatientController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TherapistProfileController</servlet-name>
+        <servlet-class>Controller.TherapistProfileController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateProfileController</servlet-name>
+        <servlet-class>Controller.UpdateProfileController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AdminController</servlet-name>
         <url-pattern>/AdminController</url-pattern>
@@ -111,6 +119,14 @@
     <servlet-mapping>
         <servlet-name>TherapistListPatientController</servlet-name>
         <url-pattern>/TherapistListPatientController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TherapistProfileController</servlet-name>
+        <url-pattern>/TherapistProfileController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateProfileController</servlet-name>
+        <url-pattern>/UpdateProfileController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

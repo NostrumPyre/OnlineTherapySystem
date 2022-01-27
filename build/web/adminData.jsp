@@ -110,11 +110,13 @@
                           <ion-icon class="text-xl text-indigo-800" name="trash-outline">> 
                           </ion-icon>
                         </a>-->
-                          <form action="deleteAdminController" method="get">
-                              <ion-icon class="text-xl text-indigo-800" name="trash-outline">> 
-                          </ion-icon><input type="hidden" name="functionDelete" value="<%= adminList.get(i).getAdminid() %>">
-                          <input id="viewbutton" type="submit" value="Delete">
-                          </form>
+                          
+                          <form action="deleteAdminController">
+                                    <input type="hidden" name="functionDelete" value="<%= adminList.get(i).getAdminid() %>">
+                                    <button class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" type="Submit">
+                                        <ion-icon class="text-xl text-indigo-800" name="trash-outline"></ion-icon>
+                                    </button>
+                                </form>
                       </div>
                     </td>
                 </tr>

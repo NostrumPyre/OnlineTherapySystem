@@ -80,8 +80,13 @@
                                 <option>Save and Publish</option>
                                 <option>Save Draft</option>
                             </select>
-                            <input type="hidden" name="id" value="<%= forumList.get(i).getForumid() %>">
-                            <input type="Submit" value="Submit">
+                           
+                            
+                                    <input type="hidden" name="id" value="<%= forumList.get(i).getForumid() %>">
+                                    <button class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" type="Submit">
+                                        <p>Send</p>
+                                    </button>
+                                
                         </div>
                         <% }} %>
                     </form>

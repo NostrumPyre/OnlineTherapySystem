@@ -60,7 +60,7 @@
                                 <option>Save and Publish</option>
                                 <option>Save Draft</option>
                             </select>
-                            <button role="submit" class="p-3 bg-blue-500 text-white hover:bg-blue-400" required>Submit</button>
+                            <button role="submit" class="p-3 bg-indigo-500 text-white hover:bg-indigo-400" required>Submit</button>
                         </div>
                     </form>
                 </div>
