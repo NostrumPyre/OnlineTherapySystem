@@ -81,6 +81,7 @@
         </button>
       </div>
     </form>
+      <div><span>Don't have an account?   </span><a href="signup.jsp"><b style="color: white;">SignUp</b></a></div>
   </div>
 </div>
 
