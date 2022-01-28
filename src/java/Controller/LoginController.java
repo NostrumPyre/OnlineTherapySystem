@@ -36,57 +36,79 @@ public class LoginController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        
-        String email = (String) request.getParameter("email");
-        String password = (String) request.getParameter("password");
-        String accountType = (String) request.getParameter("accountType");
-        HttpSession session= request.getSession();
-        
-        if(accountType.equals("patient")){
-            
-            Patient patient = new Patient();
-            ArrayList<Patient> patientList = patient.getAllPatient();
-            
-            for(int i=0;i<patientList.size();i++){
-                if(patientList.get(i).getEmail().equals(email) || patientList.get(i).getPassword().equals(password)){
-                    patient = patientList.get(i);
-                    break;
+
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            boolean check = false;
+
+            String email = (String) request.getParameter("email");
+            String password = (String) request.getParameter("password");
+            String accountType = (String) request.getParameter("accountType");
+            HttpSession session = request.getSession();
+
+            if (accountType.equals("patient")) {
+
+                Patient patient = new Patient();
+                ArrayList<Patient> patientList = patient.getAllPatient();
+
+                for (int i = 0; i < patientList.size(); i++) {
+                    if (patientList.get(i).getEmail().equals(email) || patientList.get(i).getPassword().equals(password)) {
+                        patient = patientList.get(i);
+                        check = true;
+                        break;
+                    }
+                }
+                if (check == true) {
+                    session.setAttribute("patient", patient);
+                    request.getRequestDispatcher("landingPage.jsp").forward(request, response);
+                } else {
+                    request.getRequestDispatcher("login.jsp").include(request, response);
+                    out.println("<h3 style=\"text-align: center;\">Wrong email or password</h3><br>");
+                }
+
+            } else if (accountType.equals("therapist")) {
+
+                Therapist therapist = new Therapist();
+                ArrayList<Therapist> therapistList = therapist.getAllTherapist();
+
+                for (int i = 0; i < therapistList.size(); i++) {
+                    if (therapistList.get(i).getEmail().equals(email) || therapistList.get(i).getPassword().equals(password)) {
+                        therapist = therapistList.get(i);
+                        check = true;
+                        break;
+                    }
+                }
+
+                if (check == true) {
+                    session.setAttribute("therapist", therapist);
+                    request.getRequestDispatcher("TherapistDashboard.jsp").forward(request, response);
+                } else {
+                    request.getRequestDispatcher("login.jsp").include(request, response);
+                    out.println("<h3 style=\"text-align: center;\">Wrong email or password</h3><br>");
+                }
+
+            } else {
+
+                Admin admin = new Admin();
+                ArrayList<Admin> adminList = admin.getAllAdminData();
+
+                for (int i = 0; i < adminList.size(); i++) {
+                    if (adminList.get(i).getEmail().equals(email) || adminList.get(i).getPassword().equals(password)) {
+                        admin = adminList.get(i);
+                        check = true;
+                        break;
+                    }
+                }
+
+                if (check == true) {
+                    session.setAttribute("admin", admin);
+                    request.getRequestDispatcher("AdminDashboard.jsp").forward(request, response);
+                } else {
+                    request.getRequestDispatcher("login.jsp").include(request, response);
+                    out.println("<h3 style=\"text-align: center;\">Wrong email or password</h3><br>");
                 }
             }
-            session.setAttribute("patient", patient);
-            request.getRequestDispatcher("landingPage.jsp").forward(request, response);
-            
-            
-        }else if(accountType.equals("therapist")){
-            
-            Therapist therapist = new Therapist();
-            ArrayList<Therapist> therapistList = therapist.getAllTherapist();
-            
-            for(int i=0;i<therapistList.size();i++){
-                if(therapistList.get(i).getEmail().equals(email) || therapistList.get(i).getPassword().equals(password)){
-                    therapist = therapistList.get(i);
-                    break;
-                }
-            }
-            session.setAttribute("therapist", therapist);
-            request.getRequestDispatcher("TherapistDashboard.jsp").forward(request, response);
-            
-        }else{
-            
-            Admin admin = new Admin();
-            ArrayList<Admin> adminList = admin.getAllAdminData();
-            
-            for(int i=0;i<adminList.size();i++){
-                if(adminList.get(i).getEmail().equals(email) || adminList.get(i).getPassword().equals(password)){
-                    admin = adminList.get(i);
-                    break;
-                }
-            }
-            session.setAttribute("admin", admin);
-            request.getRequestDispatcher("AdminDashboard.jsp").forward(request, response);
         }
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
