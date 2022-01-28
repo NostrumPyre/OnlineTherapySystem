@@ -4,7 +4,18 @@
     Author     : thoriqulhaqjibrilalqudsy
 --%>
 
+<%@page import="model.Questionaire"%>
+<%@page import="com.sun.xml.rpc.processor.modeler.j2ee.xml.string"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.sql.*"%>
+<%@page import="model.Appointment" %>
+<%@page import="model.Patient" %>
+<%@page import="model.Therapist" %>
+<%@page import="model.DBConnection" %>
+<%@page import="Controller.AppointmentDataController" %>
 <!doctype html>
 <html>
 <head>
@@ -71,38 +82,77 @@
                 </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                
+                <%
+                    ArrayList<Appointment> appointmentList = (ArrayList<Appointment>) session.getAttribute("appointmentList");
+                    ArrayList<Patient> patientList = (ArrayList<Patient>) session.getAttribute("patientList");
+                    ArrayList<Therapist> therapistList = (ArrayList<Therapist>) session.getAttribute("therapistList");
+                    ArrayList<Questionaire> questionaireList = (ArrayList<Questionaire>) session.getAttribute("questionaireList");
+                    
+                    
+                    for(int i=0;i<appointmentList.size();i++){
+                %>
                 <tr>
                     <td class="px-6 py-4 whitespace-nowrap ">
                         <div class="text-sm text-gray-500 ">
-                            <p>Thoriqulhaq Jibril Al Qudsy</p>
+                            <%
+                                for(int n=0;n<patientList.size();n++){
+                                if(patientList.get(n).getPatientid() == appointmentList.get(i).getPatientid()) {
+                            %>
+  
+                            <p><%= patientList.get(n).getName() %></p>
+                            
+                            <%}} %>
                         </div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap ">
                         <div class="text-sm text-gray-500 ">
-                            <p>thoriqulhaq@gmail.com</p>
+                            <%
+                                for(int n=0;n<patientList.size();n++){
+                                if(patientList.get(n).getPatientid() == appointmentList.get(i).getPatientid()) {
+                            %>
+  
+                            <p><%= patientList.get(n).getEmail() %></p>
+                            
+                            <%}} %>
                         </div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap ">
                         <div class="text-sm text-gray-500">
-                            <p>01/01/2022</p>
+                            <p><%= appointmentList.get(i).getDate() %></p>
                         </div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 ">
                         <div class="text-sm text-gray-500 ">
-                            <p>09:00 AM - 11:00 AM</p>
+                            <p><%= appointmentList.get(i).getTime_from() %> - <%= appointmentList.get(i).getTime_to() %></p>
+                            <!--<p>09:00 AM - 11:00 AM</p>-->
                         </div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 ">
                         <div class="text-sm text-gray-500 ">
-                            <p>Dr. Thoriqulhaq J</p>
+                            <%
+                                for(int n=0;n<therapistList.size();n++){
+                                if(therapistList.get(n).getTherapistid() == appointmentList.get(i).getTherapistid()) {
+                            %>
+  
+                            <p><%= therapistList.get(n).getName() %></p>
+                            
+                            <%}} %>
                         </div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 ">
                         <div class="text-sm text-gray-500 ">
-                            <div class="flex justify-between">
-                                <p class="my-auto">Critical</p>
-                                <ion-icon class="my-auto" name="document-text"></ion-icon>
+                            <div class="flex justify-center">
+                                <%
+                                for(int n=0;n<therapistList.size();n++){
+                                if(questionaireList.get(n).getPatientid() == appointmentList.get(i).getPatientid()) {
+                                %>
+                                <form action="ConditionDetailController">
+                                    <input type="hidden" name="id" value="<%= questionaireList.get(n).getQuestionaireid() %>">
+                                    <button type="Submit">
+                                       <ion-icon class="my-auto text-lg" name="document-text"></ion-icon> 
+                                    </button>
+                                </form>
+                                <%}} %>
                             </div>
                         </div>
                     </td>
@@ -111,18 +161,20 @@
                             <div>
                                 <div class="dropdown inline-block relative">
                                   <button class="border border-gray-300 bg-white text-gray-700 font-semibold py-2 px-3 rounded inline-flex items-center">
-                                    <span class="mr-1">Active</span>
+                                    <span class="mr-1">Pending</span>
                                     <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
                                   </button>
                                   <ul class="dropdown-menu fixed hidden text-gray-700 pt-1">
-                                    <li class=""><a class="rounded-t bg-white hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap" href="#">Active</a></li>
-                                    <li class=""><a class="rounded-b bg-white hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap" href="#">Inactive</a></li>
+                                    <li class=""><a class="rounded-t bg-white hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap" href="#">Pending</a></li>
+                                    <li class=""><a class="rounded-b bg-white hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap" href="#">On Progress</a></li>
+                                    <li class=""><a class="rounded-b bg-white hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap" href="#">Done</a></li>
                                   </ul>
                                 </div>
                             </div>
                         </div>
                     </td>
                 </tr>
+                <%} %>
               
                 </tbody>
             </table>

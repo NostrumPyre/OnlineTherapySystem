@@ -65,6 +65,10 @@
                     %>
    <div class="flow">
         <ul role="list" class="divide-y divide-gray-200">
+            <%
+                        ArrayList<Appointment> appointmentList = (ArrayList<Appointment>) session.getAttribute("appointmentList");
+                        for(int i=0;i<appointmentList.size();i++){
+                    %>
             <li class="py-3 sm:py-4">
                 <div class="flex items-center space-x-4">
                     <div class="flex-shrink-0">

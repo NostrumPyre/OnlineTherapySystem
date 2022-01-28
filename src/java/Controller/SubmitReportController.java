@@ -6,20 +6,21 @@ package Controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import model.Therapist;
+import model.Forum;
+import model.Report;
 
 /**
  *
- * @author Darlen
+ * @author thoriqulhaqjibrilalqudsy
  */
-@WebServlet(name = "UpdateProfileController", urlPatterns = {"/UpdateProfileController"})
-public class UpdateProfileController extends HttpServlet {
+@WebServlet(name = "SubmitReportController", urlPatterns = {"/SubmitReportController"})
+public class SubmitReportController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,28 +33,14 @@ public class UpdateProfileController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        Therapist therapist = (Therapist) session.getAttribute("therapist");
-//        int id = Integer.parseInt(request.getParameter("id"));
-        String name = request.getParameter("name");
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
-        String address = request.getParameter("address");
-        String phone = request.getParameter("phoneNumber");
-
-        Therapist updatedTherapist = new Therapist();
-
-        updatedTherapist.setName(name);
-        updatedTherapist.setEmail(email);
-        updatedTherapist.setPassword(password);
-        updatedTherapist.setAddress(address);
-        updatedTherapist.setPhone(phone);
-
-        Therapist pr = new Therapist();
-
-        pr.updateTherapist(therapist.getTherapistid(), updatedTherapist);
-
-        request.getRequestDispatcher("TherapistDashboard.jsp").forward(request, response);
+        int appointment_id = Integer.parseInt(request.getParameter("id"));
+        String report = (String) request.getParameter("report");
+        Date date = Date.valueOf(request.getParameter("date"));
+        
+        Report report_data = new Report();
+        report_data.addReport(appointment_id, report, date);
+        
+        request.getRequestDispatcher("ConditionDetailController").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
