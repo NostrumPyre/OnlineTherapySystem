@@ -174,6 +174,20 @@ public class Appointment {
       
       return appointmentList;
     }
+    
+    public void updateAppointmentStatus(int id, Appointment f) {
+       Connection conn;
+       PreparedStatement ps;
+       try{
+            String sqlupdate = "UPDATE APPOINTMENT SET status=? WHERE id =?";
+            conn = DBConnection.openConnection();
+            ps = conn.prepareStatement(sqlupdate);
+            ps.setInt(1,f.getStatus());
+            ps.setInt(2,id);
+            ps.executeUpdate();
+            
+        }catch(Exception e){}
+    }  
 
     public void deleteAppointment(int id) {
         Connection conn;

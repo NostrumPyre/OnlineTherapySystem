@@ -161,13 +161,37 @@
                             <div>
                                 <div class="dropdown inline-block relative">
                                   <button class="border border-gray-300 bg-white text-gray-700 font-semibold py-2 px-3 rounded inline-flex items-center">
-                                    <span class="mr-1">Pending</span>
+                                    <span class="mr-1"><p><% 
+                                        String status = "";
+                                        if(appointmentList.get(i).getStatus() == 0) {
+                                            status = "Pending";
+                                        } else if(appointmentList.get(i).getStatus() == 1) {
+                                            status = "On Progress";
+                                        } else if(appointmentList.get(i).getStatus() == 2) {
+                                            status = "Done";
+                                        }
+                                 
+                                    %>
+                                       <%= status %> 
+                                        </p></span>
                                     <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
                                   </button>
                                   <ul class="dropdown-menu fixed hidden text-gray-700 pt-1">
-                                    <li class=""><a class="rounded-t bg-white hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap" href="#">Pending</a></li>
-                                    <li class=""><a class="rounded-b bg-white hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap" href="#">On Progress</a></li>
-                                    <li class=""><a class="rounded-b bg-white hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap" href="#">Done</a></li>
+                                    <form action="UpdateAppointmentStatus">
+                                        <input type="hidden" name="id" value="<%= appointmentList.get(i).getAppointmentid() %>">
+                                        <input type="hidden" name="status" value="0">
+                                        <li class=""><button type="submit" class="rounded-t bg-white hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap">Pending</button></li>
+                                    </form>
+                                        <form action="UpdateAppointmentStatus">
+                                        <input type="hidden" name="id" value="<%= appointmentList.get(i).getAppointmentid() %>">
+                                        <input type="hidden" name="status" value="1">
+                                        <li class=""><button type="submit" class="rounded-b bg-white hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap">On Progress</button></li>
+                                    </form>
+                                        <form action="UpdateAppointmentStatus">
+                                        <input type="hidden" name="id" value="<%= appointmentList.get(i).getAppointmentid() %>">
+                                        <input type="hidden" name="status" value="2">
+                                       <li class=""><button type="submit" class="rounded-b bg-white hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap">Done</button></li>
+                                    </form>
                                   </ul>
                                 </div>
                             </div>

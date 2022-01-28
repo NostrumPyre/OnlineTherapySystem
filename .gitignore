@@ -1,3 +1,4 @@
 /nbproject/
 build/web/WEB-INF/lib/mysql-connector-java-5.1.37-bin.jar
 nbproject/private/
+build/web/WEB-INF/classes/model/DBConnection.class
