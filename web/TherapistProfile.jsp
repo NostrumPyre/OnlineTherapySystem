@@ -24,7 +24,9 @@
                         <h4>Therapion</h4>
 
                         <div style="margin-left: 1050px;">
-                            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+                            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                        <span class="fs-4">Therapion</span>
+                    </a>
                         </div>
                     </div>
                 </div>
@@ -55,7 +57,7 @@
                             <input type="text" class="form-control" id="address" placeholder="<%=therapistList.get(i).getAddress()%>">
                         </div>
                         
-                        <input type="hidden" name="id" value="1">
+                        <input type="hidden" name="id" value="<%= therapistList.get(i).getTherapistid() %>">
                         <button class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" type="Submit">
                               <p>Update</p>
                         </button>
