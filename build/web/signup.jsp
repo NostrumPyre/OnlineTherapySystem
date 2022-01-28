@@ -16,7 +16,7 @@
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     </head>
-    <body style = "position: relative; height: 896px; background: #858CE4;">
+    <body style = "position: relative; height: 700px; background: #858CE4;">
         <script>
             function validateform()
             {
