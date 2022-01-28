@@ -32,14 +32,15 @@ public class UpdateProfileController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        Therapist therapist = (Therapist) session.getAttribute("therapist");
-//        int id = Integer.parseInt(request.getParameter("id"));
+        
+       // Therapist therapist = (Therapist) session.getAttribute("therapist");
+        int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String address = request.getParameter("address");
         String phone = request.getParameter("phoneNumber");
+        Boolean availability = Boolean.valueOf(request.getParameter("availability"));
 
         Therapist updatedTherapist = new Therapist();
 
@@ -48,12 +49,17 @@ public class UpdateProfileController extends HttpServlet {
         updatedTherapist.setPassword(password);
         updatedTherapist.setAddress(address);
         updatedTherapist.setPhone(phone);
+        updatedTherapist.setAvailability(availability);
 
         Therapist pr = new Therapist();
 
-        pr.updateTherapist(therapist.getTherapistid(), updatedTherapist);
+        pr.updateTherapist(id, updatedTherapist);
 
         request.getRequestDispatcher("TherapistDashboard.jsp").forward(request, response);
+        
+        
+        
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
