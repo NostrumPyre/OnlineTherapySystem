@@ -85,11 +85,11 @@
           <div class="mt-10">
 
                 <label for="time-from" class="block text-sm font-medium text-gray-700">Time From</label>
-                <input type="time" name="time-from-appointment" id="time-from-appointment" class="mt-1 p-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                <input type="time" name="time-from-appointment" min="09:00" max="17:00" step="900" id="time-from-appointment" class="mt-1 p-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
           </div>
           <div class="mt-10">
                 <label for="time-to" class="block text-sm font-medium text-gray-700">Time To</label>
-                <input type="time" name="time-to-appointment" id="time-to-appointment" class="mt-1 p-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                <input type="time" name="time-to-appointment" min="10:00" max="18:00" step="900" id="time-to-appointment" class="mt-1 p-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
           </div>
 
           <button type="submit" class="mt-20 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Make Appointment</button>
@@ -134,18 +134,18 @@
       </div>
       <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
         <dt class="text-sm font-medium text-gray-500">
-          Age
+          Date of Birth
         </dt>
         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-          35
+          <%= therapist.getDob() %>
         </dd>
       </div>
       <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
         <dt class="text-sm font-medium text-gray-500">
-          Religion
+          Phone No.
         </dt>
         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-          Muslim
+          <%= therapist.getPhone() %>
         </dd>
       </div>
     </dl>

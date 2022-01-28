@@ -106,13 +106,16 @@
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium w-2">
                       <div class="flex gap-2 justify-end">
-                        <a href="">
-                          <ion-icon class="text-xl text-indigo-800" name="create-outline"></ion-icon>
-                        </a>
-                         <form action="DeleteTherapistController" method="get">
+                        <form action="TherapistProfileController">
+                                    <input type="hidden" name="id" value="<%= therapistList.get(i).getTherapistid() %>">
+                                    <button class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" type="Submit">
+                                       <ion-icon class="text-xl text-indigo-800" name="create-outline"></ion-icon>
+                                    </button>
+                                </form>
+<!--                         <form action="DeleteTherapistController" method="get">
                               <input type="hidden" name="functionDelete" value="">
                               <input class="btn" id="viewbutton" type="submit" value="Delete">
-                          </form>
+                          </form>-->
 <!--                        <a href="">
                           
                         </a>-->
